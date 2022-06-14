@@ -1,0 +1,15 @@
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: fullname in /home/mabasan1/public_html/guests/includes/save_guest.php on line 10
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: country in /home/mabasan1/public_html/guests/includes/save_guest.php on line 11
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: status in /home/mabasan1/public_html/guests/includes/save_guest.php on line 12
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: flight in /home/mabasan1/public_html/guests/includes/save_guest.php on line 13
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: arrival in /home/mabasan1/public_html/guests/includes/save_guest.php on line 14
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: departure in /home/mabasan1/public_html/guests/includes/save_guest.php on line 15
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: affiliation in /home/mabasan1/public_html/guests/includes/save_guest.php on line 16
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: commercial-flight in /home/mabasan1/public_html/guests/includes/save_guest.php on line 17
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: accomodation in /home/mabasan1/public_html/guests/includes/save_guest.php on line 18
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: transport in /home/mabasan1/public_html/guests/includes/save_guest.php on line 19
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: passport in /home/mabasan1/public_html/guests/includes/save_guest.php on line 20
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: covid in /home/mabasan1/public_html/guests/includes/save_guest.php on line 21
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: miscellaneous in /home/mabasan1/public_html/guests/includes/save_guest.php on line 22
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: invited-by in /home/mabasan1/public_html/guests/includes/save_guest.php on line 23
+[14-Jun-2022 12:42:31 UTC] PHP Notice:  Undefined index: group in /home/mabasan1/public_html/guests/includes/save_guest.php on line 24
