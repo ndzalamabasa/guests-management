@@ -4,16 +4,16 @@ CREATE TABLE IF NOT EXISTS countries(
   PRIMARY KEY(countryID)
 );
 
-CREATE TABLE IF NOT EXISTS flight(
+CREATE TABLE IF NOT EXISTS flights(
   flightID INT AUTO_INCREMENT NOT NULL,
   commercialFlight VARCHAR(50) NOT NULL,
   PRIMARY KEY(flightID)
 );
 
 CREATE TABLE IF NOT EXISTS inviters(
-  invitorID INT AUTO_INCREMENT NOT NULL,
+  inviterID INT AUTO_INCREMENT NOT NULL,
   invitorName VARCHAR(50) NOT NULL,
-  PRIMARY KEY(invitorID)
+  PRIMARY KEY(inviterID)
 );
 
 CREATE TABLE IF NOT EXISTS groups(
@@ -38,11 +38,11 @@ CREATE TABLE IF NOT EXISTS guests(
   miscellaneous VARCHAR(100),
   affiliation VARCHAR(100),
   groupID INT,
-  invitorID INT,
-  PRIMARY KEY(statusID),
+  inviterID INT,
+  PRIMARY KEY(guestID),
   FOREIGN KEY(countryID) REFERENCES countries(countryID),
   FOREIGN KEY(flightID) REFERENCES flights(flightID),
   FOREIGN KEY(groupID) REFERENCES groups(groupID),
-  FOREIGN KEY(invitorID) REFERENCES inviters(invitorID)
+  FOREIGN KEY(inviterID) REFERENCES inviters(inviterID)
 );
 
