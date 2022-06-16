@@ -170,7 +170,7 @@
               <select name="invited-by" id="invited-by">
                 <option value="">Select Inviter</option>
                 <option value="1">Mrs T.Ndambo</option>
-                <option value="2">Mrs Dos antos</option>
+                <option value="2">Mrs Dos Santos</option>
                 <option value="3">Matildah Pikiti</option>
                 <option value="4">Linda Mtonga</option>
                 <option value="5">Ms R.Ndambo</option>

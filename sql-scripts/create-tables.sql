@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS flights(
 
 CREATE TABLE IF NOT EXISTS inviters(
   inviterID INT AUTO_INCREMENT NOT NULL,
-  invitorName VARCHAR(50) NOT NULL,
+  inviterName VARCHAR(50) NOT NULL,
   PRIMARY KEY(inviterID)
 );
 

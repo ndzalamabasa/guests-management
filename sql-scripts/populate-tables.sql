@@ -1,7 +1,7 @@
 -- Invitors:
 INSERT INTO inviters (inviterName)
 VALUES('Mrs T.Ndambo'),
-('Mrs Dos antos'),
+('Mrs Dos Santos'),
 ('Matildah Pikiti'),
 ('Linda Mtonga'),
 ('Ms R.Ndambo'),
