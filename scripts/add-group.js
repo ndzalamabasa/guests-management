@@ -42,11 +42,9 @@ function addGroup(formData) {
         // Get response text from php script
         let response = JSON.parse(xhr.responseText);
 
-        console.log(response);
-        // If there are no errors,
         if (response.success !== '') {
           // reset form field to empty
-          coffee_form.reset();
+          groupForm.reset();
           // Show success message
           document.getElementById('message').innerText = `${response.success}`;
           document.querySelector('.success').style.display = 'block';
