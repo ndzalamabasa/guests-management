@@ -12,12 +12,12 @@
   <main>
     <div class="container">
     <div>
-      <h1>Add Group</h1>
+      <h1>Add Guest</h1>
     </div>
 
     <div>
       <!-- Order Form -->
-      <div class="froup-form">
+      <div class="group-form">
         <form id="group_form">
           <div class="messages">
             <p class="success" id ="message"></p>
@@ -76,7 +76,7 @@
             <li>
               <label for="commercial-flight">Commercial Flight</label>
               <select name="commercial-flight" id="commercial-flight">
-                <option value="">Commercial Flight</option>
+                <option value="">Select Flight</option>
                 <option value="1">USA-RSA-RTN</option>
                 <option value="2">SENEGAL-RSA-RTN</option>
                 <option value="3">KENYA-RSA-RTN</option>
@@ -97,30 +97,32 @@
             </li>
             <!-- Arrival -->
             <li>
-              <label for="arrival">Arrival</label>
+              <label for="arrival">Arrival Date</label>
               <input type="date" name="arrival" id="arrival" value="<?php echo htmlspecialchars($arrival)?>">
             </li>
             <!-- Departure -->
             <li>
-              <label for="departure">Departure</label>
+              <label for="departure">Departure Date</label>
               <input type="date" name="departure" id="departure" value="<?php echo htmlspecialchars($departure)?>">
             </li>
             <!-- Accomodation -->
             <li>
               <label for="accomodation">Accomodation</label>
               <select name="accomodation" id="accomodation">
-                <option value="">Select Accomodation</option>
+                <option value="">Accomodation Arrangements</option>
                 <option value="Yes">YES</option>
                 <option value="Yes-Sharing">YES-Sharing</option>
+                <option value="No">NO</option>
               </select>
             </li>
             <!-- Transport -->
             <li>
-              <label for="transport">Transport</label>
+              <label for="transport">Transportation</label>
               <select name="transport" id="transport">
-                <option value="">Select Transport</option>
+                <option value="">Transport Arrangements</option>
                 <option value="Yes">YES</option>
                 <option value="By Road">By Road</option>
+                <option value="NO">NO</option>
               </select>
             </li>
             <!-- Status -->
@@ -146,7 +148,7 @@
             </li>
             <!-- Covid -->
             <li>
-              <label for="covid">Covid</label>
+              <label for="covid">Covid Results/Vaccination</label>
               <div class="covid flex-row">
                 <span class="check-covid">
                   <input type="radio" name="covid" id="yes" value="Yes">Yes
@@ -204,7 +206,7 @@
               </select>
             </li>
           </ul>   
-          <input class="dark" id="add_group" type="submit" value="Add Group">
+          <input class="dark" id="add_group" type="submit" value="Add Guest">
         </form>
         <button id="adding-group">Adding Group...</button>
         <a href="orders.php" class="dark" id="adding-complete">Go To My Groups</a>
@@ -212,8 +214,6 @@
     </div>
     
   </main>
-
-  <!-- <script src="scripts/menu.js"></script> -->
   <script src="../scripts/add-group.js"></script>
 </body>
 </html>
