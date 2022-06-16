@@ -10,22 +10,18 @@
 <body>
 
   <main>
-    <div class="container">
-    <div>
-      <h1>Add Guest</h1>
-    </div>
-
-    <div>
+      <h1 class="page-heading">Add Guest</h1>
       <!-- Order Form -->
-      <div class="group-form">
+      <div class="container">
         <form id="group_form">
           <div class="messages">
             <p class="success" id ="message"></p>
             <p class="error" id ="err_message"></p>
           </div>
 
-          <ul class="add-group">
-          <li>
+          <ul class="form-content add-guest">
+            <!-- Fullname -->
+            <li>
               <label for="fullname">Fullname</label>
               <input type="text" name="fullname" id="fullname" value="<?php echo htmlspecialchars($fullname)?>">
               <span><p><?php echo $errors['fullname'];?></p></span>
@@ -61,7 +57,7 @@
               </select>
             </li>
              <!-- Charted Flight -->
-             <li>
+            <li>
               <label for="charted-flight">Charted Flight</label>
               <div class="charted-flight flex-row">
                 <span class="check-flight">
@@ -205,14 +201,13 @@
                 <option value="17">RSA International Guests</option>
               </select>
             </li>
-          </ul>   
+          </ul>  
+
           <input class="dark" id="add_group" type="submit" value="Add Guest">
         </form>
         <button id="adding-group">Adding Group...</button>
         <a href="orders.php" class="dark" id="adding-complete">Go To My Groups</a>
       </div>
-    </div>
-    
   </main>
   <script src="../scripts/add-group.js"></script>
 </body>
