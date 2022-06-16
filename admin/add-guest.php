@@ -205,8 +205,6 @@
 
           <input class="dark" id="add_group" type="submit" value="Add Guest">
         </form>
-        <button id="adding-group">Adding Group...</button>
-        <a href="orders.php" class="dark" id="adding-complete">Go To My Groups</a>
       </div>
   </main>
   <script src="../scripts/add-guest.js"></script>
