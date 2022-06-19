@@ -93,36 +93,53 @@ input[type='submit'] {
 .guest {
   margin-bottom: 0.75rem;
   box-shadow: var(--light-shades) 0px 2px 8px 0px;
-  border-bottom: var(--brand) solid 2px;
   border-radius: 10px;
   overflow: hidden;
 }
-.guest-info-hidden {
+
+.guest-info-show {
+  border-bottom: var(--brand) solid 2px;
+}
+.guest-info-hidden .guest-header {
   background-color: var(--light-shades);
   padding: 0.5rem;
   transition: all 0.5s ease-in-out;
+  color: var(--dark-shades);
 }
 
-.guest-info-show {
-  background-color: var(--brand);
+.guest-info-show .guest-header {
+  background-color: var(--dark-shades);
+  color: var(--light-shades);
   padding: 0.5rem;
   transition: all 0.5s ease-in-out;
 }
 
-.guest-info-hidden + .guest-info {
+.guest-info-hidden .guest-info {
   max-height: 0;
   transition: all 0.5s ease-in-out;
 }
 
-.guest-info-show + .guest-info {
+.guest-info-show .guest-info {
   max-height: 500px;
   padding: 10px;
   transition: all 0.5s ease-in-out;
 }
 
+.guest-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
 .guest h2 {
   font-size: 1.25rem;
   font-weight: 500;
+}
+
+.guest-info .more-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
 }
 
 .guest > .flex-row {
@@ -132,4 +149,5 @@ input[type='submit'] {
 .dates,
 .status-flight {
   justify-content: center;
+  gap: 0.5rem;
 }
