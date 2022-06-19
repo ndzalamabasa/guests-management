@@ -19,6 +19,21 @@
     <main>
       <div class="guest guest-info-hidden container">
         <header class="flex-row guest-header">
+          <?php
+                require_once('/includes/database_inc.php');
+
+                $sql = "SELECT coffee_orders.id, coffee_orders.user_id, coffee_orders.coffee_name, coffee_orders.quantity, coffee_orders.sugar, coffee_orders.milk,  coffee_orders.office, coffee_orders.time, coffee_orders.delivery, staff_members.Fullname 
+                FROM coffee_orders
+                JOIN staff_members
+                ON coffee_orders.user_id = staff_members.id;";
+                $result = $con ->
+          query($sql); if($result == TRUE){ $count = $result -> num_rows;
+          if($count>0){ $uid =1; while($row = $result -> fetch_assoc()){ $id =
+          $row['id']; $user = $row['Fullname']; $coffee_name =
+          $row['coffee_name']; $sugar = $row['sugar']; $milk = $row['milk'];
+          $quantity = $row['quantity']; $office = $row['office']; $order_time =
+          $row['time']; $delivery = $row['delivery']; $deliveryTime =
+          $order_time + 600; ?>
           <h2>Guest One</h2>
           <p>
             <span><i class="fa-solid fa-circle fa-2xs"></i></span>

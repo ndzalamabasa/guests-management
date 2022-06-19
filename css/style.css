@@ -149,5 +149,5 @@ input[type='submit'] {
 .dates,
 .status-flight {
   justify-content: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
