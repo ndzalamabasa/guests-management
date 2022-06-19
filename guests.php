@@ -17,12 +17,33 @@
   <body>
     <h1 class="page-heading">Guests</h1>
     <main>
-      
+      <select name="sort" id="sort">
+        <option value="all">All</option>
+        <option value="USA">USA</option>
+        <option value="RSA">RSA</option>
+        <option value="Senegal">Senegal</option>
+        <option value="Kenya">Kenya</option>
+        <option value="Namibia">Namibia</option>
+        <option value="DRC">DRC</option>
+        <option value="Ghana">Ghana</option>
+        <option value="UK">UK</option>
+        <option value="UAE">UAE</option>
+        <option value="Scotland">Scotland</option>
+        <option value="Livingstone">Livingstone</option>
+        <option value="Zambia">Zambia</option>
+        <option value="Zimbabwe">Zimbabwe</option>
+        <option value="Bulgaria">Bulgaria</option>
+        <option value="Nigeria">Nigeria</option>
+        <option value="Italy">Italy</option>
+
+      </select>
+
+      <button id="apply-sort">Apply</button>
     <?php
       require_once('./includes/database_inc.php');
 
       ?>
-      <p class="filter">
+      <p id="results">
         <?php
         $sql = "SELECT guests.fullname, countries.countryName, guests.status, guests.chartedFlight, guests.arrivalDate, guests.departureDate, guests.affiliation, flights.commercialFlight, guests.accomodation, guests.transport, guests.passport, guests.covid, guests.miscellaneous
         FROM guests
@@ -63,7 +84,7 @@
           <h2><?php echo $fullname;?></h2>
           <p>
             <span><i class="fa-solid fa-circle fa-2xs"></i></span>
-            <span><?php echo $countryName;?></span>
+            <span class="country"><?php echo $countryName;?></span>
           </p>
           <i class="fa-solid fa-circle-chevron-down fa-lg"></i>
         </header>
@@ -95,11 +116,9 @@
       }
     }
   ?>
-  <div class="total-guests text-center">
-    <p>Total Guests: <strong><?php echo $count;?></strong></p>
-  </div>
     </main>
 
     <script src="/scripts/guest-info.js"></script>
+    <script src="./scripts/filter.js"></script>
   </body>
 </html>
