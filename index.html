@@ -4,10 +4,82 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Guest Management</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1>Guests</h1>
+    <h1 class="page-heading">Guests</h1>
+    <main>
+      <div class="guest container">
+        <header class="flex-row guest-header guest-info-hidden">
+          <h2>Guest One</h2>
+          <p>
+            <span><i class="fa-solid fa-circle fa-2xs"></i></span>
+            <span>Country</span>
+          </p>
+          <p>
+            <i class="fa-solid fa-circle-chevron-down fa-lg"></i>
+          </p>
+        </header>
+        <div class="guest-info">
+          <div class="status-flight flex-row">
+            <p>Status</p>
+            <p>Flight</p>
+          </div>
+          <div class="dates flex-row">
+            <p>Arrival</p>
+            <p>Departure</p>
+          </div>
+          <!-- <p class="text-center">Affiliation:</p> -->
+          <div class="more-info">
+            <p>Commercial Flight:</p>
+            <p>Accomodation:</p>
+            <p>Transport:</p>
+            <p>Passport:</p>
+            <p>Covid Test/Vaccination:</p>
+            <p>Miscellaneous</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="guest container">
+        <header class="flex-row guest-header guest-info-hidden">
+          <h2>Guest Two</h2>
+          <p>
+            <span><i class="fa-solid fa-circle fa-2xs"></i></span>
+            <span>Country</span>
+          </p>
+          <p><i class="fa-solid fa-circle-chevron-down fa-lg"></i></p>
+        </header>
+        <div class="guest-info">
+          <div class="status-flight flex-row">
+            <p>Status</p>
+            <p>Flight</p>
+          </div>
+          <div class="dates flex-row">
+            <p>Arrival</p>
+            <p>Departure</p>
+          </div>
+          <!-- <p class="text-center">Affiliation:</p> -->
+          <div class="more-info">
+            <p>Commercial Flight:</p>
+            <p>Accomodation:</p>
+            <p>Transport:</p>
+            <p>Passport:</p>
+            <p>Covid Test/Vaccination:</p>
+            <p>Miscellaneous</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="/scripts/guest-info.js"></script>
   </body>
 </html>
