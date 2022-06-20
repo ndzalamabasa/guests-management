@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guests</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1 class="page-heading">Guests</h1>
+    <div class="results-filter">
+      <label for="country-filter">Filter By Country</label>
+      <select name="country-filter" id="country-filter">
+        <option value="all">All</option>
+        <option value="USA">USA</option>
+        <option value="RSA">RSA</option>
+        <option value="Senegal">Senegal</option>
+        <option value="Kenya">Kenya</option>
+        <option value="Namibia">Namibia</option>
+        <option value="DRC">DRC</option>
+        <option value="Ghana">Ghana</option>
+        <option value="UK">UK</option>
+        <option value="UAE">UAE</option>
+        <option value="Scotland">Scotland</option>
+        <option value="Livingstone">Livingstone</option>
+        <option value="Zambia">Zambia</option>
+        <option value="Zimbabwe">Zimbabwe</option>
+        <option value="Bulgaria">Bulgaria</option>
+        <option value="Nigeria">Nigeria</option>
+        <option value="Italy">Italy</option>
+      </select>
+      <button id="apply-filter">Apply</button>
+    </div>
+    <main class="container guest-list"></main>
+    <script src="./scripts/guest-info.js"></script>
+    <script src="./scripts/get-data.js"></script>
+    <script src="./scripts/filter.js"></script>
+  </body>
+</html>

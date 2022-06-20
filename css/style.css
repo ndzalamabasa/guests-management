@@ -5,7 +5,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+:root {
+  --brand: #687db7;
+  --dark-accent: #6a6f7c;
+  --dark-shades: #252133;
+  --light-accent: #777b83;
+  --light-shades: #e3e2e6;
+}
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -16,6 +22,7 @@ body {
 main {
   padding: 1.25rem 0;
 }
+/* Utilities */
 .container {
   width: 90vw;
   max-width: 1200px;
@@ -23,16 +30,33 @@ main {
 }
 
 .page-heading {
-  /* font-size: 1.5rem; */
   font-weight: bold;
   margin-bottom: 1rem;
   text-align: center;
 }
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
+input[type='submit'] {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Add guest styles */
 
 .add-guest {
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
   align-items: flex-start;
   margin-top: 1rem;
 }
@@ -52,26 +76,78 @@ main {
   font-weight: 600;
 }
 .add-guest li input,
-.add-guest li select {
+select {
   width: 100%;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
   padding: 0.5rem;
   font-size: 1rem;
 }
-
-.flex-row {
-  display: flex;
+.add-guest .flex-row {
   width: 25%;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 0.5rem;
 }
-.form-content input[type='submit'] {
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
+
+/* Guest details cards */
+.guest {
+  margin-bottom: 0.75rem;
+  box-shadow: var(--light-shades) 0px 2px 8px 0px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.guest-info-show {
+  border-bottom: var(--brand) solid 2px;
+}
+.guest-info-hidden .guest-header {
+  background-color: var(--light-shades);
   padding: 0.5rem;
-  font-size: 1rem;
-  margin-top: 1rem;
+  transition: all 0.5s ease-in-out;
+  color: var(--dark-shades);
+}
+
+.guest-info-show .guest-header {
+  background-color: var(--dark-shades);
+  color: var(--light-shades);
+  padding: 0.5rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.guest-info-hidden .guest-info {
+  max-height: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.guest-info-show .guest-info {
+  max-height: 500px;
+  padding: 10px;
+  transition: all 0.5s ease-in-out;
+}
+
+.guest-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.guest h2 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.guest-info .more-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.guest > .flex-row {
+  justify-content: space-between;
+}
+
+.dates,
+.status-flight {
+  justify-content: center;
+  gap: 1rem;
 }

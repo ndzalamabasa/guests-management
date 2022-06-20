@@ -1,92 +1,25 @@
-<?php
-// Variables to make inputs persist in the form
-$fullname = $country = $status = $chartedFlight = $arrival = $departure = $affiliation = $commercialFlight = $accomodation = $transport = $passport = $covid = $miscellaneous = $invitedBy = $group = '';
-
-// Array to errors error messages
-$errors = array('fullname' => '', 'stmt'=>'');
-
-// Check if the submit button have been clicked and process the form
-if (isset($_POST["submit"])){
-
-  $fullname = ($_POST["fullname"]);
-  $country = ($_POST["country"]);
-  $status = ($_POST["status"]);
-  $chartedFlight = ($_POST["charted-flight"]);
-  $arrival = ($_POST["arrival"]);
-  $departure = ($_POST["departure"]);
-  $affiliation = ($_POST["affiliation"]);
-  $commercialFlight = ($_POST["commercial-flight"]);
-  $accomodation = ($_POST["accomodation"]);
-  $transport = ($_POST["transport"]);
-  $passport = ($_POST["passport"]);
-  $covid = ($_POST["covid"]);
-  $miscellaneous = ($_POST["miscellaneous"]);
-  $invitedBy = ($_POST["invited-by"]);
-  $group = ($_POST["group"]);
-
-  // Connect to the database
-  require_once('../includes/database_inc.php');
-
-  // Function to create a new user to store t the database
-  function addGuest($con, $fullname, $country, $status, $chartedFlight, $arrival, $departure, $affiliation, $commercialFlight, $accomodation, $transport, $passport, $covid, $miscellaneous, $invitedBy, $group){
-    // SQL statement to get data from staff members table from the database
-    $sql = "INSERT INTO guests (fullname, countryID, chartedFlight, flightID, arrival, departure, accomodation, transport, status, passport, covid, miscellaneous, affiliation, groupID, inviterID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    
-    // Create a prepared statement
-    $stmt = $con -> stmt_init();
-    
-    // Display an error if preparing statemnt failed
-    if(!$stmt -> prepare($sql)){
-      $errors['stmt'] = 'stmtfailed';
-    }
-    
-    // Bind statement to variables
-    $stmt -> bind_param("sssssssssssssss", $fullname, $country, $chartedFlight, $commercialFlight, $arrival, $departure, $accomodation, $transport, $status, $passport, $covid, $miscellaneous, $affiliation, $group, $invitedBy);
-    
-    // Execute statement
-    $stmt -> execute();
-    
-    // Close statement
-    $stmt -> close();
-  }
-
-  // Error to display if fullname is empty
-  if(empty($fullname)){
-    $errors['fullname'] = 'Fullname is required';
-  }
-  else{
-    addGuest($con, $fullname, $country, $status, $chartedFlight, $arrival, $departure, $affiliation, $commercialFlight, $accomodation, $transport, $passport, $covid, $miscellaneous, $invitedBy, $group);
-
-    $fullname = $country = $status = $chartedFlight = $arrival = $departure = $affiliation = $commercialFlight = $accomodation = $transport = $passport = $covid = $miscellaneous = $invitedBy = $group = '';
-  }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
   <link rel="stylesheet" href="../css/style.css">
   <title>Add Guest</title>
 </head>
 <body>
-  <!-- Header/Navigation from Partials folder -->
+
   <main>
-    <div class="form-container">
-    <h1 class="page-heading">Add Guest</h1>
-      <div class="form-content container">
-        <!-- Sign Up Form -->
-        <form action="add-guest.php" method="post">
-          <ul class="add-guest">
+      <h1 class="page-heading">Add Guest</h1>
+      <!-- Order Form -->
+      <div class="container">
+        <form id="group_form">
+          <div class="messages">
+            <p class="success" id ="message"></p>
+            <p class="error" id ="err_message"></p>
+          </div>
+
+          <ul class="form-content add-guest">
             <!-- Fullname -->
             <li>
               <label for="fullname">Fullname</label>
@@ -124,7 +57,7 @@ if (isset($_POST["submit"])){
               </select>
             </li>
              <!-- Charted Flight -->
-             <li>
+            <li>
               <label for="charted-flight">Charted Flight</label>
               <div class="charted-flight flex-row">
                 <span class="check-flight">
@@ -139,7 +72,7 @@ if (isset($_POST["submit"])){
             <li>
               <label for="commercial-flight">Commercial Flight</label>
               <select name="commercial-flight" id="commercial-flight">
-                <option value="">Commercial Flight</option>
+                <option value="">Select Flight</option>
                 <option value="1">USA-RSA-RTN</option>
                 <option value="2">SENEGAL-RSA-RTN</option>
                 <option value="3">KENYA-RSA-RTN</option>
@@ -160,30 +93,32 @@ if (isset($_POST["submit"])){
             </li>
             <!-- Arrival -->
             <li>
-              <label for="arrival">Arrival</label>
+              <label for="arrival">Arrival Date</label>
               <input type="date" name="arrival" id="arrival" value="<?php echo htmlspecialchars($arrival)?>">
             </li>
             <!-- Departure -->
             <li>
-              <label for="departure">Departure</label>
+              <label for="departure">Departure Date</label>
               <input type="date" name="departure" id="departure" value="<?php echo htmlspecialchars($departure)?>">
             </li>
             <!-- Accomodation -->
             <li>
               <label for="accomodation">Accomodation</label>
               <select name="accomodation" id="accomodation">
-                <option value="">Select Accomodation</option>
+                <option value="">Accomodation Arrangements</option>
                 <option value="Yes">YES</option>
                 <option value="Yes-Sharing">YES-Sharing</option>
+                <option value="No">NO</option>
               </select>
             </li>
             <!-- Transport -->
             <li>
-              <label for="transport">Transport</label>
+              <label for="transport">Transportation</label>
               <select name="transport" id="transport">
-                <option value="">Select Transport</option>
+                <option value="">Transport Arrangements</option>
                 <option value="Yes">YES</option>
                 <option value="By Road">By Road</option>
+                <option value="NO">NO</option>
               </select>
             </li>
             <!-- Status -->
@@ -209,7 +144,7 @@ if (isset($_POST["submit"])){
             </li>
             <!-- Covid -->
             <li>
-              <label for="covid">Covid</label>
+              <label for="covid">Covid Results/Vaccination</label>
               <div class="covid flex-row">
                 <span class="check-covid">
                   <input type="radio" name="covid" id="yes" value="Yes">Yes
@@ -235,7 +170,7 @@ if (isset($_POST["submit"])){
               <select name="invited-by" id="invited-by">
                 <option value="">Select Inviter</option>
                 <option value="1">Mrs T.Ndambo</option>
-                <option value="2">Mrs Dos antos</option>
+                <option value="2">Mrs Dos Santos</option>
                 <option value="3">Matildah Pikiti</option>
                 <option value="4">Linda Mtonga</option>
                 <option value="5">Ms R.Ndambo</option>
@@ -266,17 +201,12 @@ if (isset($_POST["submit"])){
                 <option value="17">RSA International Guests</option>
               </select>
             </li>
-          </ul>
-          <!-- Submit button -->
-          <input type="submit" name="submit" value="Add Guest">
+          </ul>  
+
+          <input class="dark" id="add_group" type="submit" value="Add Guest">
         </form>
       </div>
-    </div>
   </main>
-
-  <!-- Script for error messages -->
-  <!-- <script src="scripts/menu.js"></script>
-  <script src="message.js"></script> -->
-
+  <script src="../scripts/add-guest.js"></script>
 </body>
 </html>

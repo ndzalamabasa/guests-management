@@ -1,7 +1,7 @@
 -- Invitors:
-INSERT INTO inviters (invitorName)
+INSERT INTO inviters (inviterName)
 VALUES('Mrs T.Ndambo'),
-('Mrs Dos antos'),
+('Mrs Dos Santos'),
 ('Matildah Pikiti'),
 ('Linda Mtonga'),
 ('Ms R.Ndambo'),
@@ -69,12 +69,3 @@ VALUES('USA-RSA-RTN'),
 ('LUN-JNB-OW'),
 ('NYC-LUN-NYC'),
 ('NYC-DBX-JNB-NYC');
-
-INSERT INTO guests (fullname, countryID, chartedFlight, flightID, arrivalDate, departureDate, accomodation, transport, status, affiliation)
-VALUES('Dr Toni Luck', 1, 'Yes', 1, '2022-06-16', '2022-07-04', 'Yes', 'Yes', 'VIP', 'MHT & MHT AFRICA LEGACY FUND');
-
-INSERT INTO guests (fullname, countryID,chartedFlight, flightID, arrivalDate, departureDate, accomodation, transport, status, affiliation)
-VALUES('Curet Megan Ashley', 1, 'Yes', 1, '16/06/2022', '03/07/2022', 'Yes', 'Yes', 'VIP', 'JUDGE');
-
-INSERT INTO guests (fullname, countryID, chartedFlight, flightID, arrivalDate, departureDate, accomodation, transport, status, affiliation)
-VALUES('Maier Johnson', 1, "Yes", 1, '16/06/2022', '03/07/2022', 'Yes', 'Yes', 'VIP', 'JUDGE');
