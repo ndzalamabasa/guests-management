@@ -1,16 +1,16 @@
-const applyFilter = document.querySelector('#apply-sort');
+const applyFilter = document.querySelector('#apply-filter');
 const countries = document.querySelectorAll('.country');
-const sort = document.querySelector('#sort');
+const countryFilter = document.querySelector('#country-filter');
 
-applyFilter.addEventListener('click', sortResults);
+applyFilter.addEventListener('click', filterResults);
 
-function sortResults() {
+function filterResults() {
   // e.preventDefault();
 
   countries.forEach((country) => {
-    if (sort.value === 'all') {
+    if (countryFilter.value === 'all') {
       country.parentElement.parentElement.parentElement.style.display = 'block';
-    } else if (!country.innerHTML.includes(sort.value)) {
+    } else if (!country.innerHTML.includes(countryFilter.value)) {
       country.parentElement.parentElement.parentElement.style.display = 'none';
     } else {
       country.parentElement.parentElement.parentElement.style.display = 'block';

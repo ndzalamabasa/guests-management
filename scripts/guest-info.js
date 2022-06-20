@@ -1,7 +1,7 @@
-const guestHeader = document.querySelectorAll('.guest-header');
-
-guestHeader.forEach((header) => {
-  header.addEventListener('click', showDetails, false);
+const guestList = document.querySelectorAll('.guest-list');
+console.log('before event'); //Debug
+guestList.forEach((guest) => {
+  guest.addEventListener('click', showDetails, false);
 });
 
 function showDetails(e) {

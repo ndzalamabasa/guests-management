@@ -16,8 +16,10 @@
   </head>
   <body>
     <h1 class="page-heading">Guests</h1>
-    <main>
-      <select name="sort" id="sort">
+    <main class="container">
+      <div class="results-filter">
+      <label for="country-filter">Filter By Country</label>
+      <select name="country-filter" id="country-filter">
         <option value="all">All</option>
         <option value="USA">USA</option>
         <option value="RSA">RSA</option>
@@ -37,8 +39,8 @@
         <option value="Italy">Italy</option>
 
       </select>
-
-      <button id="apply-sort">Apply</button>
+      <button id="apply-filter">Apply</button>
+      </div>
     <?php
       require_once('./includes/database_inc.php');
 
@@ -79,7 +81,7 @@
             $miscellaneous = $row['miscellaneous'];
 
     ?>
-      <div class="guest guest-info-hidden container">
+      <div class="guest guest-info-hidden">
         <header class="flex-row guest-header">
           <h2><?php echo $fullname;?></h2>
           <p>

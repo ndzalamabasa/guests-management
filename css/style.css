@@ -76,7 +76,7 @@ input[type='submit'] {
   font-weight: 600;
 }
 .add-guest li input,
-.add-guest li select {
+select {
   width: 100%;
   border: 1px solid #ccc;
   border-radius: 0.25rem;
