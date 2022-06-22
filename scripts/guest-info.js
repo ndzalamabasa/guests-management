@@ -1,12 +1,10 @@
 const guestList = document.querySelectorAll('.guest-list');
-console.log('before event'); //Debug
+
 guestList.forEach((guest) => {
   guest.addEventListener('click', showDetails, false);
 });
 
 function showDetails(e) {
-  // let guestDetails = document.querySelector('.guest-info');
-
   if (e.target.classList.contains('fa-circle-chevron-down')) {
     e.target.classList.replace(
       'fa-circle-chevron-down',
