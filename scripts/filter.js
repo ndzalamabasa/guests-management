@@ -1,19 +1,13 @@
-const applyFilter = document.querySelector('#apply-filter');
-const countries = document.querySelectorAll('.country');
-const countryFilter = document.querySelector('#country-filter');
+// const toogleFilter = document.querySelector('#toggle-filter');
 
-applyFilter.addEventListener('click', filterResults);
+// const filter = document.querySelector('.filter');
 
-function filterResults() {
-  // e.preventDefault();
-
-  countries.forEach((country) => {
-    if (countryFilter.value === 'all') {
-      country.parentElement.parentElement.parentElement.style.display = 'block';
-    } else if (!country.innerHTML.includes(countryFilter.value)) {
-      country.parentElement.parentElement.parentElement.style.display = 'none';
-    } else {
-      country.parentElement.parentElement.parentElement.style.display = 'block';
-    }
-  });
-}
+// toogleFilter.addEventListener('click', () => {
+//   if (filter.classList.contains('filter-hidden')) {
+//     filter.classList.remove('filter-hidden');
+//     filter.classList.add('filter-show');
+//   } else {
+//     filter.classList.remove('filter-show');
+//     filter.classList.add('filter-hidden');
+//   }
+// });
