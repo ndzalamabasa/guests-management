@@ -15,9 +15,11 @@ const filter = document.querySelector('.filter');
 
 toogleFilter.addEventListener('click', () => {
   if (filter.classList.contains('filter-hidden')) {
+    document.querySelector('body').classList.add('no-scroll');
     filter.classList.remove('filter-hidden');
     filter.classList.add('filter-show');
   } else {
+    document.querySelector('body').classList.remove('no-scroll');
     filter.classList.remove('filter-show');
     filter.classList.add('filter-hidden');
   }
@@ -57,19 +59,6 @@ function showData() {
         let name = header.appendChild(document.createElement('h2'));
         name.classList.add('guest-name');
         name.innerHTML = item.fullname;
-
-        let countryContainer = header.appendChild(document.createElement('p'));
-        // country.classList.add('guest-country');
-        let countryDivider = countryContainer.appendChild(
-          document.createElement('span')
-        );
-        countryDivider.innerHTML = '<i class="fa-solid fa-circle fa-2xs"></i>';
-
-        let country = countryContainer.appendChild(
-          document.createElement('span')
-        );
-        country.classList.add('country');
-        country.innerHTML = item.countryName;
 
         let expand = header.appendChild(document.createElement('i'));
         expand.classList.add('fa-solid', 'fa-circle-chevron-down', 'fa-lg');
@@ -119,6 +108,12 @@ function showData() {
 
         let moreInfo = guestInfo.appendChild(document.createElement('div'));
         moreInfo.classList.add('more-info');
+
+        let country = moreInfo.appendChild(document.createElement('p'));
+        country.classList.add('country');
+        country.appendChild(document.createTextNode('Country: '));
+        country.appendChild(document.createElement('strong')).innerHTML =
+          item.countryName;
 
         let commercialFlight = moreInfo.appendChild(
           document.createElement('p')
@@ -189,9 +184,11 @@ function filterData() {
   });
 
   if (filter.classList.contains('filter-hidden')) {
+    document.querySelector('body').classList.add('no-scroll');
     filter.classList.remove('filter-hidden');
     filter.classList.add('filter-show');
   } else {
+    document.querySelector('body').classList.remove('no-scroll');
     filter.classList.remove('filter-show');
     filter.classList.add('filter-hidden');
   }
