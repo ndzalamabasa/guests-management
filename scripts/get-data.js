@@ -1,10 +1,13 @@
 let results = document.querySelector('.guest-list');
 let data;
 
-const applyFilter = document.querySelector('#apply-filter');
+const applyFilter = document.querySelector('.apply-filter');
 const countryFilter = document.querySelector('#country-filter');
 const statusFilter = document.querySelector('#status-filter');
 const commercialFilter = document.querySelector('#commercial-filter');
+const cancel = document.querySelector('.cancel');
+
+cancel.addEventListener('click', closeFilter);
 
 applyFilter.addEventListener('click', filterData);
 window.addEventListener('load', showData);
@@ -13,17 +16,7 @@ const toogleFilter = document.querySelector('#toggle-filter');
 
 const filter = document.querySelector('.filter');
 
-toogleFilter.addEventListener('click', () => {
-  if (filter.classList.contains('filter-hidden')) {
-    document.querySelector('body').classList.add('no-scroll');
-    filter.classList.remove('filter-hidden');
-    filter.classList.add('filter-show');
-  } else {
-    document.querySelector('body').classList.remove('no-scroll');
-    filter.classList.remove('filter-show');
-    filter.classList.add('filter-hidden');
-  }
-});
+toogleFilter.addEventListener('click', closeFilter);
 
 function showData() {
   const xhttp = new XMLHttpRequest();
@@ -61,7 +54,7 @@ function showData() {
         name.innerHTML = item.fullname;
 
         let expand = header.appendChild(document.createElement('i'));
-        expand.classList.add('fa-solid', 'fa-circle-chevron-down', 'fa-lg');
+        expand.classList.add('fa-solid', 'fa-circle-chevron-down', 'fa-xl');
 
         // Guest Info
         let guestInfo = row.appendChild(document.createElement('div'));
@@ -171,6 +164,10 @@ function filterData() {
     }
   });
 
+  closeFilter();
+}
+
+function closeFilter() {
   if (filter.classList.contains('filter-hidden')) {
     document.querySelector('body').classList.add('no-scroll');
     filter.classList.remove('filter-hidden');
@@ -181,3 +178,18 @@ function filterData() {
     filter.classList.add('filter-hidden');
   }
 }
+let search = document.querySelector('#search');
+
+search.addEventListener('keyup', (e) => {
+  let rows = results.querySelectorAll('.guest');
+
+  rows.forEach((row) => {
+    let name = row.querySelector('.guest-name').innerHTML;
+
+    if (name.toLowerCase().includes(e.target.value.toLowerCase())) {
+      row.style.display = 'block';
+    } else {
+      row.style.display = 'none';
+    }
+  });
+});
