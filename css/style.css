@@ -4,13 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-  /* overflow-x: hidden; */
 }
-html {
-  overflow-x: hidden;
-}
-
 :root {
   --brand: #687db7;
   --dark-accent: #6a6f7c;
@@ -22,7 +16,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   background: #f5f5f5;
-  overflow-x: hidden;
   padding: 1.75rem 0;
 }
 /* Global styles */
@@ -126,6 +119,9 @@ select {
   margin-bottom: 0.5rem;
 }
 
+.no-scroll {
+  overflow: hidden;
+}
 /* Guest details cards */
 .guest {
   margin-bottom: 0.75rem;
@@ -193,12 +189,12 @@ select {
 .filter {
   height: 100vh;
   width: 100vw;
-  position: absolute;
+  position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
   top: 0;
   left: 0;
   background-color: var(--light-shades);
-  padding-top: 1.25rem;
-  /* overflow: hidden; */
 }
 .filter-hidden {
   transform: translateX(100%);
