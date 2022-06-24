@@ -30,6 +30,10 @@ main {
   margin: 0 auto;
 }
 
+h1 {
+  font-size: 2.5rem;
+}
+
 .page-heading {
   font-weight: bold;
   margin-bottom: 1rem;
@@ -46,7 +50,7 @@ button {
   color: #fff;
   width: 100%;
   border: 1px solid #ccc;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   padding: 0.5rem;
   font-size: 1rem;
   margin-top: 1rem;
@@ -57,22 +61,6 @@ button:hover {
   background-color: var(--dark-shades);
   cursor: pointer;
   color: #fff;
-}
-
-.filter-button {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-#apply-filter {
-  width: 150px;
-  margin-left: auto;
-}
-
-#toogle-sort,
-#toggle-filter {
-  width: 150px;
-  margin: 0 20px;
 }
 
 .text-center {
@@ -105,11 +93,12 @@ ul li label {
   font-size: 1.25rem;
   font-weight: 600;
 }
-ul li input,
+
+input,
 select {
   width: 100%;
   border: 1px solid #ccc;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   padding: 0.5rem;
   font-size: 1rem;
 }
@@ -122,11 +111,18 @@ select {
 .no-scroll {
   overflow: hidden;
 }
+
+.btn-transparent {
+  background-color: transparent;
+  color: var(--dark-shades);
+  border: 1px solid var(--dark-shades);
+  transition: background-color 0.2s ease-in-out;
+}
 /* Guest details cards */
 .guest {
   margin-bottom: 0.75rem;
   box-shadow: var(--light-shades) 0px 2px 8px 0px;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   overflow: hidden;
 }
 
@@ -196,6 +192,21 @@ select {
   left: 0;
   background-color: var(--light-shades);
 }
+.filter-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.apply-filter,
+.cancel {
+  width: 150px;
+  margin-left: 0.5rem;
+}
+
+#toogle-sort,
+#toggle-filter {
+  width: 150px;
+}
 .filter-hidden {
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
@@ -206,6 +217,27 @@ select {
   transition: transform 0.3s ease-in-out;
 }
 
-.btns {
+.search-filter {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--light-shades);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  gap: 0.5rem;
   margin-bottom: 1rem;
+}
+
+.search-filter .filter-button {
+  justify-content: space-between;
+}
+
+/* Search Input */
+#search-input:focus,
+#search-input:hover,
+#search-input:active,
+#search-input:focus-within,
+#search-input:hover-within,
+#search-input:active-within {
+  outline: none;
+  border: 1px solid var(--brand);
 }
