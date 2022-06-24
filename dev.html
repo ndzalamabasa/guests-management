@@ -16,10 +16,14 @@
   </head>
   <body>
     <h1 class="page-heading">Guests</h1>
-    <div class="filter-button container btns">
-      <button id="toogle-sort">Sort</button>
-      <button id="toggle-filter">Filter</button>
+    <div class="search-filter container">
+      <input type="text" id="search" placeholder="Search By Name" />
+      <div class="filter-button btns">
+        <button id="toogle-sort">Sort</button>
+        <button id="toggle-filter">Filter</button>
+      </div>
     </div>
+
     <div class="filter filter-hidden">
       <div class="filter-results container">
         <ul class="results-filter">
@@ -57,7 +61,7 @@
           <li>
             <label for="commercial-filter">Filter By Commercial Flight</label>
             <select name="commercial-filter" id="commercial-filter">
-              <option value="all">all</option>
+              <option value="all">All</option>
               <option value="USA-RSA-RTN">USA-RSA-RTN</option>
               <option value="SENEGAL-RSA-RTN">SENEGAL-RSA-RTN</option>
               <option value="KENYA-RSA-RTN">KENYA-RSA-RTN</option>
@@ -79,7 +83,8 @@
         </ul>
 
         <div class="filter-button">
-          <button id="apply-filter">Apply</button>
+          <button class="cancel btn-transparent">Cancel</button>
+          <button class="apply-filter">Apply</button>
         </div>
       </div>
     </div>
