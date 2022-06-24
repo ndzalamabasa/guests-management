@@ -67,55 +67,19 @@ function showData() {
         let guestInfo = row.appendChild(document.createElement('div'));
         guestInfo.classList.add('guest-info');
 
-        let introInfo = guestInfo.appendChild(document.createElement('div'));
-        introInfo.classList.add('intro-info');
-
-        let statusFlight = introInfo.appendChild(document.createElement('div'));
-        statusFlight.classList.add('status-flight', 'flex-row');
-
-        let status = statusFlight.appendChild(document.createElement('p'));
-        status.classList.add('status');
-        status.appendChild(document.createTextNode('Status: '));
-        status.appendChild(document.createElement('strong')).innerHTML =
-          item.status;
-
-        let flight = statusFlight.appendChild(document.createElement('p'));
-        flight.classList.add('flight');
-        flight.appendChild(document.createTextNode('Charted Flight: '));
-        flight.appendChild(document.createElement('strong')).innerHTML =
-          item.chartedFlight;
-
-        let dates = introInfo.appendChild(document.createElement('div'));
-        dates.classList.add('dates', 'flex-row');
-
-        let arrival = dates.appendChild(document.createElement('p'));
-        arrival.classList.add('arrival');
-        arrival.appendChild(document.createTextNode('Arrival: '));
-        arrival.appendChild(document.createElement('strong')).innerHTML =
-          item.arrivalDate;
-
-        let departure = dates.appendChild(document.createElement('p'));
-        departure.classList.add('departure');
-        departure.appendChild(document.createTextNode('Departure: '));
-        departure.appendChild(document.createElement('strong')).innerHTML =
-          item.departureDate;
-
-        let affilation = guestInfo.appendChild(document.createElement('p'));
-        affilation.classList.add('affilation');
-        affilation.classList.add('text-center', 'affffiliation');
-        affilation.appendChild(document.createElement('strong')).innerHTML =
-          item.affiliation;
-
-        let moreInfo = guestInfo.appendChild(document.createElement('div'));
-        moreInfo.classList.add('more-info');
-
-        let country = moreInfo.appendChild(document.createElement('p'));
+        let country = guestInfo.appendChild(document.createElement('p'));
         country.classList.add('country');
         country.appendChild(document.createTextNode('Country: '));
         country.appendChild(document.createElement('strong')).innerHTML =
           item.countryName;
 
-        let commercialFlight = moreInfo.appendChild(
+        let chartedFlight = guestInfo.appendChild(document.createElement('p'));
+        chartedFlight.classList.add('charted-flight');
+        chartedFlight.appendChild(document.createTextNode('Charted Flight: '));
+        chartedFlight.appendChild(document.createElement('strong')).innerHTML =
+          item.chartedFlight;
+
+        let commercialFlight = guestInfo.appendChild(
           document.createElement('p')
         );
         commercialFlight.classList.add('commercial-flight');
@@ -126,25 +90,43 @@ function showData() {
           document.createElement('strong')
         ).innerHTML = item.commercialFlight;
 
-        let accomodation = moreInfo.appendChild(document.createElement('p'));
+        let arrival = guestInfo.appendChild(document.createElement('p'));
+        arrival.classList.add('arrival');
+        arrival.appendChild(document.createTextNode('Arrival Date: '));
+        arrival.appendChild(document.createElement('strong')).innerHTML =
+          item.arrivalDate;
+
+        let departure = guestInfo.appendChild(document.createElement('p'));
+        departure.classList.add('departure');
+        departure.appendChild(document.createTextNode('Departure Date: '));
+        departure.appendChild(document.createElement('strong')).innerHTML =
+          item.departureDate;
+
+        let accomodation = guestInfo.appendChild(document.createElement('p'));
         accomodation.classList.add('accomodation');
         accomodation.appendChild(document.createTextNode('Accomodation: '));
         accomodation.appendChild(document.createElement('strong')).innerHTML =
           item.accomodation;
 
-        let transport = moreInfo.appendChild(document.createElement('p'));
+        let transport = guestInfo.appendChild(document.createElement('p'));
         transport.classList.add('transport');
         transport.appendChild(document.createTextNode('Transport: '));
         transport.appendChild(document.createElement('strong')).innerHTML =
           item.transport;
 
-        let passport = moreInfo.appendChild(document.createElement('p'));
+        let status = guestInfo.appendChild(document.createElement('p'));
+        status.classList.add('status');
+        status.appendChild(document.createTextNode('Status: '));
+        status.appendChild(document.createElement('strong')).innerHTML =
+          item.status;
+
+        let passport = guestInfo.appendChild(document.createElement('p'));
         passport.classList.add('passport');
         passport.appendChild(document.createTextNode('Passport: '));
         passport.appendChild(document.createElement('strong')).innerHTML =
           item.passport;
 
-        let covidTest = moreInfo.appendChild(document.createElement('p'));
+        let covidTest = guestInfo.appendChild(document.createElement('p'));
         covidTest.classList.add('covid-test');
         covidTest.appendChild(
           document.createTextNode('Covid Test/Vaccination: ')
@@ -152,11 +134,17 @@ function showData() {
         covidTest.appendChild(document.createElement('strong')).innerHTML =
           item.covid;
 
-        let miscellaneous = moreInfo.appendChild(document.createElement('p'));
+        let miscellaneous = guestInfo.appendChild(document.createElement('p'));
         miscellaneous.classList.add('miscellaneous');
         miscellaneous.appendChild(document.createTextNode('Miscellaneous: '));
         miscellaneous.appendChild(document.createElement('strong')).innerHTML =
           item.miscellaneous;
+
+        let affiliation = guestInfo.appendChild(document.createElement('p'));
+        affiliation.classList.add('affiliation');
+        affiliation.appendChild(document.createTextNode('Affiliation: '));
+        affiliation.appendChild(document.createElement('strong')).innerHTML =
+          item.affiliation;
       });
     }
   };
