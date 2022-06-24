@@ -37,6 +37,6 @@ function addGroup(formData) {
       }
     }
   };
-  xhr.open('POST', `../includes/save_guest.php`);
+  xhr.open('POST', `../includes/save-guest.php`);
   xhr.send(formData);
 }
