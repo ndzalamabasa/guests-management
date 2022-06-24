@@ -16,6 +16,10 @@
   </head>
   <body>
     <h1 class="page-heading">Guests</h1>
+    <div class="filter-button container btns">
+      <button id="toogle-sort">Sort</button>
+      <button id="toggle-filter">Filter</button>
+    </div>
     <div class="filter filter-hidden">
       <div class="filter-results container">
         <ul class="results-filter">
@@ -79,11 +83,9 @@
         </div>
       </div>
     </div>
-    <div class="filter-button container btns">
-      <button id="toogle-sort">Sort</button>
-      <button id="toggle-filter">Filter</button>
-    </div>
+
     <main class="container guest-list"></main>
+
     <script src="./scripts/guest-info.js"></script>
     <script src="./scripts/get-data.js"></script>
     <script src="./scripts/filter.js"></script>
