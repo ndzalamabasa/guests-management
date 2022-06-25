@@ -1,22 +1,21 @@
 let results = document.querySelector('.guest-list');
 let data;
 
-const applyFilter = document.querySelector('.apply-filter');
 const countryFilter = document.querySelector('#country-filter');
 const statusFilter = document.querySelector('#status-filter');
 const commercialFilter = document.querySelector('#commercial-filter');
+
+const toogleFilter = document.querySelector('#toggle-filter');
+const filter = document.querySelector('.filter');
+const applyFilter = document.querySelector('.apply-filter');
 const cancel = document.querySelector('.cancel');
 
-cancel.addEventListener('click', closeFilter);
+cancel.addEventListener('click', openCloseFilter);
 
 applyFilter.addEventListener('click', filterData);
 window.addEventListener('load', showData);
 
-const toogleFilter = document.querySelector('#toggle-filter');
-
-const filter = document.querySelector('.filter');
-
-toogleFilter.addEventListener('click', closeFilter);
+toogleFilter.addEventListener('click', openCloseFilter);
 
 function showData() {
   const xhttp = new XMLHttpRequest();
@@ -60,15 +59,11 @@ function showData() {
         let guestInfo = row.appendChild(document.createElement('div'));
         guestInfo.classList.add('guest-info');
 
-        let country = guestInfo.appendChild(document.createElement('p'));
-        country.classList.add('country');
-        country.appendChild(document.createTextNode('Country: '));
-        country.appendChild(document.createElement('strong')).innerHTML =
-          item.countryName;
-
         let chartedFlight = guestInfo.appendChild(document.createElement('p'));
         chartedFlight.classList.add('charted-flight');
-        chartedFlight.appendChild(document.createTextNode('Charted Flight: '));
+        chartedFlight
+          .appendChild(document.createElement('span'))
+          .appendChild(document.createTextNode('Charted Flight: '));
         chartedFlight.appendChild(document.createElement('strong')).innerHTML =
           item.chartedFlight;
 
@@ -76,66 +71,90 @@ function showData() {
           document.createElement('p')
         );
         commercialFlight.classList.add('commercial-flight');
-        commercialFlight.appendChild(
-          document.createTextNode('Commercial Flight: ')
-        );
+        commercialFlight
+          .appendChild(document.createElement('span'))
+          .appendChild(document.createTextNode('Commercial Flight: '));
         commercialFlight.appendChild(
           document.createElement('strong')
         ).innerHTML = item.commercialFlight;
 
+        let country = guestInfo.appendChild(document.createElement('p'));
+        country.classList.add('country');
+        country
+          .appendChild(document.createElement('span'))
+          .appendChild(document.createTextNode('Country: '));
+        country.appendChild(document.createElement('strong')).innerHTML =
+          item.countryName;
+
         let arrival = guestInfo.appendChild(document.createElement('p'));
         arrival.classList.add('arrival');
-        arrival.appendChild(document.createTextNode('Arrival Date: '));
+        arrival
+          .appendChild(document.createElement('span'))
+          .appendChild(document.createTextNode('Arrival Date: '));
         arrival.appendChild(document.createElement('strong')).innerHTML =
           item.arrivalDate;
 
         let departure = guestInfo.appendChild(document.createElement('p'));
         departure.classList.add('departure');
-        departure.appendChild(document.createTextNode('Departure Date: '));
+        departure
+          .appendChild(document.createElement('span'))
+          .appendChild(document.createTextNode('Departure Date: '));
         departure.appendChild(document.createElement('strong')).innerHTML =
           item.departureDate;
 
         let accomodation = guestInfo.appendChild(document.createElement('p'));
         accomodation.classList.add('accomodation');
-        accomodation.appendChild(document.createTextNode('Accomodation: '));
+        accomodation
+          .appendChild(document.createElement('span'))
+          .appendChild(document.createTextNode('Accomodation: '));
         accomodation.appendChild(document.createElement('strong')).innerHTML =
           item.accomodation;
 
         let transport = guestInfo.appendChild(document.createElement('p'));
         transport.classList.add('transport');
-        transport.appendChild(document.createTextNode('Transport: '));
+        transport
+          .appendChild(document.createElement('span'))
+          .appendChild(document.createTextNode('Transport: '));
         transport.appendChild(document.createElement('strong')).innerHTML =
           item.transport;
 
         let status = guestInfo.appendChild(document.createElement('p'));
         status.classList.add('status');
-        status.appendChild(document.createTextNode('Status: '));
+        status
+          .appendChild(document.createElement('span'))
+          .appendChild(document.createTextNode('Status: '));
         status.appendChild(document.createElement('strong')).innerHTML =
           item.status;
 
         let passport = guestInfo.appendChild(document.createElement('p'));
         passport.classList.add('passport');
-        passport.appendChild(document.createTextNode('Passport: '));
+        passport
+          .appendChild(document.createElement('span'))
+          .appendChild(document.createTextNode('Passport: '));
         passport.appendChild(document.createElement('strong')).innerHTML =
           item.passport;
 
         let covidTest = guestInfo.appendChild(document.createElement('p'));
         covidTest.classList.add('covid-test');
-        covidTest.appendChild(
-          document.createTextNode('Covid Test/Vaccination: ')
-        );
+        covidTest
+          .appendChild(document.createElement('span'))
+          .appendChild(document.createTextNode('Covid Test: '));
         covidTest.appendChild(document.createElement('strong')).innerHTML =
           item.covid;
 
         let miscellaneous = guestInfo.appendChild(document.createElement('p'));
         miscellaneous.classList.add('miscellaneous');
-        miscellaneous.appendChild(document.createTextNode('Miscellaneous: '));
+        miscellaneous
+          .appendChild(document.createElement('span'))
+          .appendChild(document.createTextNode('Miscellaneous: '));
         miscellaneous.appendChild(document.createElement('strong')).innerHTML =
           item.miscellaneous;
 
         let affiliation = guestInfo.appendChild(document.createElement('p'));
         affiliation.classList.add('affiliation');
-        affiliation.appendChild(document.createTextNode('Affiliation: '));
+        affiliation
+          .appendChild(document.createElement('span'))
+          .appendChild(document.createTextNode('Affiliation: '));
         affiliation.appendChild(document.createElement('strong')).innerHTML =
           item.affiliation;
       });
@@ -158,16 +177,16 @@ function filterData() {
       (commercialFilter.value === 'all' ||
         commercial.includes(commercialFilter.value))
     ) {
-      row.style.display = 'block';
+      row.style.display = 'grid';
     } else {
       row.style.display = 'none';
     }
   });
 
-  closeFilter();
+  openCloseFilter();
 }
 
-function closeFilter() {
+function openCloseFilter() {
   if (filter.classList.contains('filter-hidden')) {
     document.querySelector('body').classList.add('no-scroll');
     filter.classList.remove('filter-hidden');
@@ -191,5 +210,26 @@ search.addEventListener('keyup', (e) => {
     } else {
       row.style.display = 'none';
     }
+  });
+});
+
+let scrollers = document.querySelectorAll('.scroller');
+
+let scrollerDivs = Array.prototype.filter.call(
+  scrollers,
+  function (testElement) {
+    return testElement.nodeName === 'DIV';
+  }
+);
+
+function scrollAll(scrollLeft) {
+  scrollerDivs.forEach(function (element, index, array) {
+    element.scrollLeft = scrollLeft;
+  });
+}
+
+scrollerDivs.forEach(function (element, index, array) {
+  element.addEventListener('scroll', function (e) {
+    scrollAll(e.target.scrollLeft);
   });
 });
