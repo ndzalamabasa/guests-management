@@ -26,8 +26,6 @@ function showData() {
     if (this.readyState == 4 && this.status == 200) {
       data = JSON.parse(this.responseText);
 
-      results.innerHTML = '';
-
       data.forEach(function (item) {
         for (let property in item) {
           if (item[property] != null && item[property].length <= 3) {
@@ -41,7 +39,7 @@ function showData() {
 
         // Guest data
         let row = results.appendChild(document.createElement('div'));
-        row.classList.add('guest', 'guest-info-hidden');
+        row.classList.add('guest', 'guest-info-hidden', 'scroller');
 
         // Guest Header
         let header = row.appendChild(document.createElement('div'));
@@ -158,6 +156,26 @@ function showData() {
         affiliation.appendChild(document.createElement('strong')).innerHTML =
           item.affiliation;
       });
+
+      let scrollers = document.querySelectorAll('.scroller');
+      let scrollerDivs = Array.prototype.filter.call(
+        scrollers,
+        function (testElement) {
+          return testElement.nodeName === 'DIV';
+        }
+      );
+
+      function scrollAll(scrollLeft) {
+        scrollerDivs.forEach(function (element) {
+          element.scrollLeft = scrollLeft;
+        });
+      }
+
+      scrollerDivs.forEach(function (element) {
+        element.addEventListener('scroll', function (e) {
+          scrollAll(e.target.scrollLeft);
+        });
+      });
     }
   };
 }
@@ -213,23 +231,6 @@ search.addEventListener('keyup', (e) => {
   });
 });
 
-let scrollers = document.querySelectorAll('.scroller');
+// let interval = setInterval(() => {
 
-let scrollerDivs = Array.prototype.filter.call(
-  scrollers,
-  function (testElement) {
-    return testElement.nodeName === 'DIV';
-  }
-);
-
-function scrollAll(scrollLeft) {
-  scrollerDivs.forEach(function (element, index, array) {
-    element.scrollLeft = scrollLeft;
-  });
-}
-
-scrollerDivs.forEach(function (element, index, array) {
-  element.addEventListener('scroll', function (e) {
-    scrollAll(e.target.scrollLeft);
-  });
-});
+// }, 2000);

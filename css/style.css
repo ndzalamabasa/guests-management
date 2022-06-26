@@ -263,7 +263,7 @@ select {
     display: grid;
     grid-template-columns: 200px 12fr;
     align-items: center;
-    overflow-x: scroll;
+    overflow-x: auto;
   }
 
   .guest-info-hidden::-webkit-scrollbar,
