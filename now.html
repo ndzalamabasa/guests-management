@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guests</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1 class="page-heading">Guests</h1>
+    <div class="search-filter container">
+      <input type="text" id="search" placeholder="Search By Name" />
+      <div class="filter-button btns">
+        <button id="toogle-sort">Sort</button>
+        <button id="toggle-filter">Filter</button>
+      </div>
+    </div>
+
+    <div class="filter filter-hidden">
+      <div class="filter-results container">
+        <ul class="results-filter">
+          <li>
+            <label for="country-filter">Filter By Country</label>
+            <select name="country-filter" id="country-filter">
+              <option value="all">All</option>
+              <option value="USA">USA</option>
+              <option value="RSA">RSA</option>
+              <option value="Senegal">Senegal</option>
+              <option value="Kenya">Kenya</option>
+              <option value="Namibia">Namibia</option>
+              <option value="DRC">DRC</option>
+              <option value="Ghana">Ghana</option>
+              <option value="UK">UK</option>
+              <option value="UAE">UAE</option>
+              <option value="Scotland">Scotland</option>
+              <option value="Livingstone">Livingstone</option>
+              <option value="Zambia">Zambia</option>
+              <option value="Zimbabwe">Zimbabwe</option>
+              <option value="Bulgaria">Bulgaria</option>
+              <option value="Nigeria">Nigeria</option>
+              <option value="Italy">Italy</option>
+            </select>
+          </li>
+          <li>
+            <label for="status-filter">Filter By Status</label>
+            <select name="status-filter" id="status-filter">
+              <option value="all">All</option>
+              <option value="VIP">VIP</option>
+              <option value="Normal">Normal</option>
+              <option value="">None</option>
+            </select>
+          </li>
+          <li>
+            <label for="commercial-filter">Filter By Commercial Flight</label>
+            <select name="commercial-filter" id="commercial-filter">
+              <option value="all">All</option>
+              <option value="USA-RSA-RTN">USA-RSA-RTN</option>
+              <option value="SENEGAL-RSA-RTN">SENEGAL-RSA-RTN</option>
+              <option value="KENYA-RSA-RTN">KENYA-RSA-RTN</option>
+              <option value="GHANA-RSA-RTN">GHANA-RSA-RTN</option>
+              <option value="DUBAI-RSA-RTN">DUBAI-RSA-RTN</option>
+              <option value="UK-LUN-RTN">UK-LUN-RTN</option>
+              <option value="USA-LUN-RTN">USA-LUN-RTN</option>
+              <option value="SCOTLAND-LUN-RTN">SCOTLAND-LUN-RTN</option>
+              <option value="LVI-JNB-OW">LVI-JNB-OW</option>
+              <option value="JNB-LVI-JNB-RTN">JNB-LVI-JNB-RTN</option>
+              <option value="JNB-LVI-LUN-JNB">JNB-LVI-LUN-JNB</option>
+              <option value="NYC-JNB-LVI-NYC">NYC-JNB-LVI-NYC</option>
+              <option value="NYC-LVI-NYC">NYC-LVI-NYC</option>
+              <option value="LUN-JNB-OW">LUN-JNB-OW</option>
+              <option value="NYC-LUN-NYC">NYC-LUN-NYC</option>
+              <option value="NYC-DBX-JNB-LVI-NYC">NYC-DBX-JNB-LVI-NYC</option>
+            </select>
+          </li>
+        </ul>
+
+        <div class="filter-button">
+          <button class="cancel btn-transparent">Cancel</button>
+          <button class="apply-filter">Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="container headers">
+      <div class="table-header scroller">
+        <div class="name-header">
+          <div class="table-header-cell">Fullname</div>
+        </div>
+        <div class="other-headers">
+          <div class="table-header-cell">Charted Flight</div>
+          <div class="table-header-cell">Commercial Flight</div>
+          <div class="table-header-cell">Country</div>
+          <div class="table-header-cell">Arrival</div>
+          <div class="table-header-cell">Departure</div>
+          <div class="table-header-cell">Accomodation</div>
+          <div class="table-header-cell">Transport</div>
+          <div class="table-header-cell">Status</div>
+          <div class="table-header-cell">Passport</div>
+          <div class="table-header-cell">Covid</div>
+          <div class="table-header-cell">Miscellaneous</div>
+          <div class="table-header-cell">Affiliation</div>
+        </div>
+      </div>
+    </div>
+
+    <main class="container guest-list"></main>
+
+    <script src="./scripts/guest-info.js"></script>
+    <script src="./scripts/get-data.js"></script>
+  </body>
+</html>
