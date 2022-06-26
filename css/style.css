@@ -15,7 +15,7 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
-  background: #f5f5f5;
+  background: #ffffff;
   padding: 1.75rem 0;
 }
 /* Global styles */
@@ -258,10 +258,14 @@ select {
 }
 
 @media (min-width: 1024px) {
+  .guest:nth-child(odd) {
+    background-color: var(--light-shades);
+  }
   .guest-info-hidden,
   .table-header {
     display: grid;
     grid-template-columns: 200px 12fr;
+    gap: 0.5rem;
     align-items: center;
     overflow-x: auto;
   }
@@ -271,8 +275,21 @@ select {
     display: none;
   }
 
+  .name-header,
+  .guest-info-hidden .guest-header {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    background-color: #fff;
+  }
+
+  .guest-info-hidden:nth-child(odd) .guest-header {
+    background-color: var(--light-shades);
+  }
+
   .guest {
     box-shadow: none;
+    border-radius: 0;
     margin: 0;
   }
 
@@ -282,7 +299,6 @@ select {
   }
 
   .guest-info-hidden .guest-header {
-    background-color: transparent;
     font-weight: 600;
   }
 
