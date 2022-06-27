@@ -6,11 +6,11 @@
   box-sizing: border-box;
 }
 :root {
-  --brand: #687db7;
+  --brand: #1e42a6;
   --dark-accent: #6a6f7c;
   --dark-shades: #252133;
   --light-accent: #777b83;
-  --light-shades: #e3e2e6;
+  --light-shades: #f1f1f1;
 }
 body {
   font-family: 'Open Sans', sans-serif;
@@ -21,7 +21,7 @@ body {
 /* Global styles */
 
 main {
-  padding: 1.25rem 0;
+  padding-bottom: 1.25rem;
 }
 /* Utilities */
 .container {
@@ -68,6 +68,10 @@ button:hover {
 
 .guest-name {
   text-transform: capitalize;
+}
+
+.hide-field {
+  display: none;
 }
 /* Add guest styles */
 
@@ -180,8 +184,17 @@ select {
   gap: 1rem;
 }
 
+.update-details {
+  text-align: end;
+  transition: all 0.5s ease-in-out;
+}
+
+.update-details i {
+  color: var(--brand);
+}
 /* Filter */
-.filter {
+.filter,
+.sort {
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -189,14 +202,17 @@ select {
   overflow-x: hidden;
   top: 0;
   left: 0;
+  z-index: 100;
   background-color: var(--light-shades);
 }
-.filter-button {
+.filter-button,
+.sort-button {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
 .apply-filter,
+.apply-sort,
 .cancel {
   width: 150px;
   margin-left: 0.5rem;
@@ -206,7 +222,8 @@ select {
 #toggle-filter {
   width: 150px;
 }
-.filter-hidden {
+.filter-hidden,
+.sort-hidden {
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
 }
@@ -215,7 +232,8 @@ select {
   display: none;
 }
 
-.filter-show {
+.filter-show,
+.sort-show {
   transform: translateX(0);
   transition: transform 0.3s ease-in-out;
 }
@@ -258,6 +276,10 @@ select {
 }
 
 @media (min-width: 1024px) {
+  .guest-list {
+    height: 80vh;
+    overflow: auto;
+  }
   .guest:nth-child(odd) {
     background-color: var(--light-shades);
   }
@@ -265,9 +287,17 @@ select {
   .table-header {
     display: grid;
     grid-template-columns: 200px 12fr;
-    gap: 0.5rem;
+    gap: 1rem;
     align-items: center;
     overflow-x: auto;
+  }
+  .table-header-cell {
+    text-transform: uppercase;
+  }
+
+  .table-header {
+    position: sticky;
+    top: 0;
   }
 
   .guest-info-hidden::-webkit-scrollbar,
@@ -319,7 +349,7 @@ select {
     max-height: 100%;
 
     display: grid;
-    grid-template-columns: repeat(12, 150px);
+    grid-template-columns: repeat(12, 250px);
     gap: 0;
     align-items: center;
   }

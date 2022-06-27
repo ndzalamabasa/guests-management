@@ -1,14 +1,26 @@
 let results = document.querySelector('.guest-list');
 let data;
 
+// Filters
 const countryFilter = document.querySelector('#country-filter');
 const statusFilter = document.querySelector('#status-filter');
 const commercialFilter = document.querySelector('#commercial-filter');
+const groupFilter = document.querySelector('#group-filter');
+const transportFilter = document.querySelector('#transport-filter');
+const accomodationFilter = document.querySelector('#accomodation-filter');
 
 const toogleFilter = document.querySelector('#toggle-filter');
 const filter = document.querySelector('.filter');
 const applyFilter = document.querySelector('.apply-filter');
 const cancel = document.querySelector('.cancel');
+
+// Sort
+// const sort = document.querySelector('.sort');
+// const toogleSort = document.querySelector('#toggle-sort');
+
+// let applySort = document.querySelector('.apply-sort');
+
+// applySort.addEventListener('click', sortData);
 
 cancel.addEventListener('click', openCloseFilter);
 
@@ -16,6 +28,7 @@ applyFilter.addEventListener('click', filterData);
 window.addEventListener('load', showData);
 
 toogleFilter.addEventListener('click', openCloseFilter);
+// toogleSort.addEventListener('click', openCloseSort);
 
 function showData() {
   const xhttp = new XMLHttpRequest();
@@ -33,7 +46,7 @@ function showData() {
           }
 
           if (item[property] == null) {
-            item[property] = '';
+            item[property] = '--';
           }
         }
 
@@ -155,6 +168,20 @@ function showData() {
           .appendChild(document.createTextNode('Affiliation: '));
         affiliation.appendChild(document.createElement('strong')).innerHTML =
           item.affiliation;
+
+        let group = guestInfo.appendChild(document.createElement('p'));
+        group.classList.add('group', 'hide-field');
+        group.innerHTML = item.groupName;
+
+        let updateDetails = guestInfo.appendChild(document.createElement('p'));
+
+        updateDetails.classList.add('update-details');
+        let edit = updateDetails.appendChild(document.createElement('i'));
+        edit.classList.add('fa-solid', 'fa-user-pen', 'fa-xl');
+
+        let guestID = updateDetails.appendChild(document.createElement('p'));
+        guestID.classList.add('guest-id', 'hide-field');
+        guestID.innerHTML = item.guestID;
       });
 
       let scrollers = document.querySelectorAll('.scroller');
@@ -187,13 +214,21 @@ function filterData() {
     let country = row.querySelector('.country').innerHTML;
     let status = row.querySelector('.status').innerHTML;
     let commercial = row.querySelector('.commercial-flight').innerHTML;
+    let group = row.querySelector('.group').innerHTML;
+    let transport = row.querySelector('.transport').innerHTML;
+    let accomodation = row.querySelector('.accomodation').innerHTML;
 
     if (
       (countryFilter.value === 'all' ||
         country.includes(countryFilter.value)) &&
       (statusFilter.value === 'all' || status.includes(statusFilter.value)) &&
       (commercialFilter.value === 'all' ||
-        commercial.includes(commercialFilter.value))
+        commercial.includes(commercialFilter.value)) &&
+      (groupFilter.value === 'all' || group.includes(groupFilter.value)) &&
+      (transportFilter.value === 'all' ||
+        transport.includes(transportFilter.value)) &&
+      (accomodationFilter.value === 'all' ||
+        accomodation.includes(accomodationFilter.value))
     ) {
       row.style.display = 'grid';
     } else {
@@ -203,6 +238,32 @@ function filterData() {
 
   openCloseFilter();
 }
+
+// const sort_by = (field, reverse, primer) => {
+//   const key = primer
+//     ? function (x) {
+//         return primer(x[field]);
+//       }
+//     : function (x) {
+//         return x[field];
+//       };
+
+//   reverse = !reverse ? 1 : -1;
+
+//   return function (a, b) {
+//     return (a = key(a)), (b = key(b)), reverse * ((a > b) - (b > a));
+//   };
+// };
+
+// function sortData() {
+//   let rows = results.querySelectorAll('.guest');
+
+//   rows.forEach((row) => {
+//     let country = row.querySelector('.country').innerHTML;
+
+//     row.sort(sort_by(country, false));
+//   });
+// }
 
 function openCloseFilter() {
   if (filter.classList.contains('filter-hidden')) {
@@ -215,6 +276,19 @@ function openCloseFilter() {
     filter.classList.add('filter-hidden');
   }
 }
+
+// function openCloseSort() {
+//   if (sort.classList.contains('sort-hidden')) {
+//     document.querySelector('body').classList.add('no-scroll');
+//     sort.classList.remove('sort-hidden');
+//     sort.classList.add('sort-show');
+//   } else {
+//     document.querySelector('body').classList.remove('no-scroll');
+//     sort.classList.remove('sort-show');
+//     sort.classList.add('sort-hidden');
+//   }
+// }
+
 let search = document.querySelector('#search');
 
 search.addEventListener('keyup', (e) => {
