@@ -70,6 +70,14 @@ function showData() {
         let guestInfo = row.appendChild(document.createElement('div'));
         guestInfo.classList.add('guest-info');
 
+        let country = guestInfo.appendChild(document.createElement('p'));
+        country.classList.add('country');
+        country
+          .appendChild(document.createElement('span'))
+          .appendChild(document.createTextNode('Country: '));
+        country.appendChild(document.createElement('strong')).innerHTML =
+          item.countryName;
+
         let chartedFlight = guestInfo.appendChild(document.createElement('p'));
         chartedFlight.classList.add('charted-flight');
         chartedFlight
@@ -88,14 +96,6 @@ function showData() {
         commercialFlight.appendChild(
           document.createElement('strong')
         ).innerHTML = item.commercialFlight;
-
-        let country = guestInfo.appendChild(document.createElement('p'));
-        country.classList.add('country');
-        country
-          .appendChild(document.createElement('span'))
-          .appendChild(document.createTextNode('Country: '));
-        country.appendChild(document.createElement('strong')).innerHTML =
-          item.countryName;
 
         let arrival = guestInfo.appendChild(document.createElement('p'));
         arrival.classList.add('arrival');

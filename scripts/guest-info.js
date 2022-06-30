@@ -1,7 +1,7 @@
 let guestList = document.querySelectorAll('.guest-list');
 
 guestList.forEach((guest) => {
-  guest.addEventListener('click', showDetails, false);
+  guest.addEventListener('click', showDetails);
 });
 
 function showDetails(e) {
