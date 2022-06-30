@@ -14,6 +14,10 @@
       <!-- Order Form -->
       <div class="container">
         <form id="group_form">
+          <div class="messages">
+            <p class="success" id ="message"></p>
+            <p class="error" id ="err_message"></p>
+          </div>
 
           <ul class="form-content add-guest">
             <!-- Fullname -->
@@ -198,10 +202,7 @@
               </select>
             </li>
           </ul>  
-          <div class="messages text-center">
-            <p class="success" id ="message"></p>
-            <p class="error" id ="err_message"></p>
-          </div>
+
           <input class="dark" id="add_group" type="submit" value="Add Guest">
         </form>
       </div>
