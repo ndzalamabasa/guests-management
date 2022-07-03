@@ -56,13 +56,13 @@ button {
   border: 1px solid var(--brand);
   border-radius: 0.5rem;
   padding: 0.5rem;
-  font-size: 1rem;
+  font-size: 1.25rem;
+  font-weight: 500;
   margin-top: 2rem;
   transition: background-color 0.2s ease-in-out;
 }
 input[type='submit'] {
   margin: 2rem 0 0.75rem;
-  text-transform: uppercase;
 }
 
 input[type='submit']:hover,
@@ -313,35 +313,56 @@ strong {
 }
 
 .hide-form {
-  transform: scale(0);
-  transform-origin: bottom right;
-  transition: transform 0.5s ease-in-out;
+  display: none;
+  /* transform-origin: bottom right; */
+  transition: display 0.3s ease-in-out;
 }
 
 .show-form {
-  transform: scale(1);
-  transform-origin: bottom right;
-  transition: transform 0.5s ease-in-out;
+  display: block;
+  transition: display 0.3s ease-in-out;
 }
 
 .form-container {
-  background-color: var(--light-shades);
-  max-width: 500px;
+  border: 1px solid var(--light-shades);
+  border-radius: 0.5rem;
+
+  color: var(--light-shades);
+  max-width: 400px;
   padding: 1.5rem;
   margin: auto;
-  border-radius: 0.5rem;
   position: relative;
+}
+
+.form-container input,
+.form-container select {
+  background-color: transparent;
+  border: 1px solid var(--light-shades);
+  color: var(--light-shades);
+}
+
+.form-container input[type='submit'] {
+  background-color: var(--light-shades);
+  color: var(--dark-shades);
 }
 
 .close-form {
   position: absolute;
-  color: var(--brand);
-  top: -5px;
-  right: -5px;
+  color: var(--light-shades);
+  top: -10px;
+  right: -10px;
+  z-index: 1;
 }
 
 .close-form:hover {
   cursor: pointer;
+}
+
+.btns button {
+  margin-top: 0.5rem;
+  font-size: 1em;
+  font-weight: 400;
+  border: none;
 }
 
 @media (min-width: 768px) {
@@ -358,11 +379,6 @@ strong {
     width: 400px;
     background-color: var(--dark-shades);
     color: var(--light-shades);
-  }
-
-  ul li label {
-    margin-bottom: 0.25rem;
-    font-weight: 300;
   }
 }
 
