@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
 
 * {
   margin: 0;
@@ -13,10 +13,10 @@
   --light-shades: #f1f1f1;
 }
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
   background: #ffffff;
   padding: 1.75rem 0;
+  font-weight: 300;
 }
 /* Global styles */
 
@@ -34,7 +34,6 @@ h1 {
 }
 
 .page-heading {
-  font-weight: bold;
   margin-bottom: 1rem;
   text-align: center;
 }
@@ -87,7 +86,6 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* margin-top: 1rem; */
 }
 
 ul li {
@@ -101,18 +99,25 @@ ul li {
 
 ul li label {
   margin-bottom: 0.25rem;
-  font-size: 1.25rem;
   font-weight: 600;
 }
 
 input,
 select {
+  outline: none;
   width: 100%;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   padding: 0.5rem;
-  font-size: 1rem;
 }
+
+input:active,
+input:focus,
+select:active,
+select:focus {
+  border: 2px solid var(--brand);
+}
+
 .add-guest .flex-row {
   width: 25%;
   justify-content: space-between;
@@ -137,6 +142,9 @@ select {
   overflow: hidden;
 }
 
+strong {
+  font-weight: 600;
+}
 .guest-info-show {
   border-bottom: var(--brand) solid 2px;
 }
@@ -146,12 +154,17 @@ select {
   transition: all 0.5s ease-in-out;
   color: var(--dark-shades);
 }
-
+.guest-info-hidden .guest-header i {
+  color: var(--brand);
+}
 .guest-info-show .guest-header {
   background-color: var(--dark-shades);
   color: var(--light-shades);
   padding: 0.5rem;
   transition: all 0.5s ease-in-out;
+}
+.guest-info-show .guest-header i {
+  color: var(--light-shades);
 }
 
 .guest-info-hidden .guest-info {
@@ -161,7 +174,7 @@ select {
 
 .guest-info-show .guest-info {
   max-height: 500px;
-  padding: 10px;
+  padding: 0.5rem;
   transition: all 0.5s ease-in-out;
 }
 
@@ -172,24 +185,12 @@ select {
 }
 
 .guest h2 {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 500;
-}
-
-.guest-info .more-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.125rem;
 }
 
 .guest > .flex-row {
   justify-content: space-between;
-}
-
-.dates,
-.status-flight {
-  justify-content: center;
-  gap: 1rem;
 }
 
 .update-details {
@@ -332,11 +333,14 @@ select {
 }
 
 @media (min-width: 1024px) {
+  strong {
+    font-weight: 400;
+  }
   .guest-list {
     height: 80vh;
     overflow: auto;
   }
-  .guest:nth-child(odd) {
+  .guest:nth-child(even) {
     background-color: var(--light-shades);
   }
   .guest-info-hidden,
@@ -350,6 +354,11 @@ select {
     -ms-overflow-style: none; /* Internet Explorer 10+ */
     scrollbar-width: none; /* Firefox */
   }
+  .table-header {
+    background-color: var(--dark-shades);
+    color: var(--light-shades);
+  }
+
   .table-header-cell {
     text-transform: uppercase;
   }
@@ -371,8 +380,11 @@ select {
     z-index: 1;
     background-color: #fff;
   }
+  .name-header {
+    background-color: var(--dark-shades);
+  }
 
-  .guest-info-hidden:nth-child(odd) .guest-header {
+  .guest-info-hidden:nth-child(even) .guest-header {
     background-color: var(--light-shades);
   }
 
@@ -384,11 +396,6 @@ select {
 
   .guest h2 {
     font-weight: 600;
-    font-size: 18px;
-  }
-
-  .guest-info-hidden .guest-header {
-    font-weight: 600;
   }
 
   .table-header .name-header {
@@ -396,13 +403,9 @@ select {
   }
   .table-header .name-header,
   .table-header .other-headers {
-    font-size: 18px;
-    font-weight: 700;
-  }
-
-  strong {
     font-weight: 500;
   }
+
   .guest-info-hidden .guest-info,
   .other-headers {
     max-height: 100%;
