@@ -43,6 +43,10 @@ h1 {
   align-items: center;
 }
 
+.flex-row span {
+  text-align: center;
+}
+
 input[type='submit'],
 button {
   background-color: var(--brand);
