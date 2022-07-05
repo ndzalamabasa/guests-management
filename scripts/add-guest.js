@@ -33,10 +33,10 @@ function addGroup(formData) {
           }, 3000);
         }
       } else {
-        alert('there was a problem with adding a group, try again!');
+        alert('there was a problem with adding a guest, try again!');
       }
     }
   };
-  xhr.open('POST', `../includes/save-guest.php`);
+  xhr.open('POST', `/includes/save-guest.php`);
   xhr.send(formData);
 }
