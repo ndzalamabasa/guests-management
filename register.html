@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>MHT Pageant | Sign Up</title>
+  </head>
+  <body>
+    <main>
+      <!-- Order Form -->
+      <div class="container">
+        <div class="sign-up-form">
+          <form id="sign-up-form">
+            <h1 class="page-heading">Sign Up</h1>
+            <div class="messages text-center">
+              <p class="success" id="message"></p>
+              <p class="error" id="err_message"></p>
+            </div>
+
+            <ul class="form-content sign-up">
+              <!-- Fullname -->
+              <li>
+                <label for="fullname">Fullname</label>
+                <input
+                  type="text"
+                  name="fullname"
+                  id="fullname"
+                  value=""
+                  required
+                />
+                <!-- Email -->
+              </li>
+
+              <li>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" value="" required />
+              </li>
+              <!-- Password -->
+              <li>
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  value=""
+                  required
+                />
+              </li>
+              <!-- Confirm Password -->
+              <li>
+                <label for="confirm-password">Confirm Password</label>
+                <input
+                  type="password"
+                  name="confirm-password"
+                  id="confirm-password"
+                  value=""
+                  required
+                />
+              </li>
+            </ul>
+
+            <input id="sign-up" type="submit" value="Sign Up" />
+            <p class="text-center">
+              <small class="text-center"
+                >Have an account?
+                <a href="/index"><strong>Sign In</strong></a></small
+              >
+            </p>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="/scripts/sign-up.js"></script>
+  </body>
+</html>
