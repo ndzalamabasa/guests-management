@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>MHT Pageant | Sign In</title>
+  </head>
+  <body>
+    <main>
+      <!-- Order Form -->
+      <div class="container">
+        <div class="messages text-center">
+          <p class="success" id="message"></p>
+          <p class="error" id="err_message"></p>
+        </div>
+
+        <div class="sign-in-form">
+          <form id="sign-in-form">
+            <h1 class="page-heading">Sign In</h1>
+
+            <ul class="form-content sign-in">
+              <!-- Email -->
+              <li>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" value="" required />
+              </li>
+              <!-- Password -->
+              <li>
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  value=""
+                  required
+                />
+              </li>
+            </ul>
+            <input id="sign-in" type="submit" value="Sign In" />
+            <p class="text-center">
+              <small class="text-center"
+                >Don't have an account?
+                <a href="/register"><strong>Sign Up</strong></a></small
+              >
+            </p>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
