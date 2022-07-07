@@ -1,48 +1,98 @@
-CREATE TABLE IF NOT EXISTS countries(
+CREATE TABLE
+IF NOT EXISTS countries
+(
   countryID INT AUTO_INCREMENT NOT NULL,
-  countryName VARCHAR(50) NOT NULL,
-  PRIMARY KEY(countryID)
+  countryName VARCHAR
+(50) NOT NULL,
+  PRIMARY KEY
+(countryID)
 );
 
-CREATE TABLE IF NOT EXISTS flights(
+CREATE TABLE
+IF NOT EXISTS flights
+(
   flightID INT AUTO_INCREMENT NOT NULL,
-  commercialFlight VARCHAR(50) NOT NULL,
-  PRIMARY KEY(flightID)
+  commercialFlight VARCHAR
+(50) NOT NULL,
+  PRIMARY KEY
+(flightID)
 );
 
-CREATE TABLE IF NOT EXISTS inviters(
+CREATE TABLE
+IF NOT EXISTS inviters
+(
   inviterID INT AUTO_INCREMENT NOT NULL,
-  inviterName VARCHAR(50) NOT NULL,
-  PRIMARY KEY(inviterID)
+  inviterName VARCHAR
+(50) NOT NULL,
+  PRIMARY KEY
+(inviterID)
 );
 
-CREATE TABLE IF NOT EXISTS groups(
+CREATE TABLE
+IF NOT EXISTS groups
+(
   groupID INT AUTO_INCREMENT NOT NULL,
-  groupName VARCHAR(50) NOT NULL,
-  PRIMARY KEY(groupID)
+  groupName VARCHAR
+(50) NOT NULL,
+  PRIMARY KEY
+(groupID)
 );
 
-CREATE TABLE IF NOT EXISTS guests(
+CREATE TABLE
+IF NOT EXISTS guests
+(
   guestID INT AUTO_INCREMENT NOT NULL,
-  fullname VARCHAR(50) NOT NULL,
+  fullname VARCHAR
+(50) NOT NULL,
   countryID INT,
-  chartedFlight VARCHAR(50),
+  chartedFlight VARCHAR
+(50),
   flightID INT,
   arrivalDate DATE,
   departureDate DATE,
-  accomodation VARCHAR(50),
-  transport VARCHAR(10),
-  status VARCHAR(20),
-  passport VARCHAR(10),
-  covid VARCHAR(10),
-  miscellaneous VARCHAR(100),
-  affiliation VARCHAR(100),
+  accomodation VARCHAR
+(50),
+  transport VARCHAR
+(10),
+  status VARCHAR
+(20),
+  passport VARCHAR
+(10),
+  covid VARCHAR
+(10),
+  miscellaneous VARCHAR
+(100),
+  affiliation VARCHAR
+(100),
   groupID INT,
   inviterID INT,
-  PRIMARY KEY(guestID),
-  FOREIGN KEY(countryID) REFERENCES countries(countryID),
-  FOREIGN KEY(flightID) REFERENCES flights(flightID),
-  FOREIGN KEY(groupID) REFERENCES groups(groupID),
-  FOREIGN KEY(inviterID) REFERENCES inviters(inviterID)
+  PRIMARY KEY
+(guestID),
+  FOREIGN KEY
+(countryID) REFERENCES countries
+(countryID),
+  FOREIGN KEY
+(flightID) REFERENCES flights
+(flightID),
+  FOREIGN KEY
+(groupID) REFERENCES groups
+(groupID),
+  FOREIGN KEY
+(inviterID) REFERENCES inviters
+(inviterID)
 );
 
+-- User table
+CREATE TABLE
+IF NOT EXISTS users
+(
+  userID INT AUTO_INCREMENT NOT NULL,
+  fullname VARCHAR
+(100) NOT NULL,
+  email VARCHAR
+(100) NOT NULL,
+  password VARCHAR
+(100) NOT NULL,
+  PRIMARY KEY
+(userID)
+);
