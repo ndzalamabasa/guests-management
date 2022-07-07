@@ -369,6 +369,36 @@ strong {
   border: none;
 }
 
+/* Sign up and in forms */
+.sign-in-form,
+.sign-up-form {
+  max-width: 400px;
+  margin: auto;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#sign-in-form,
+#sign-up-form {
+  width: 100%;
+
+  border: 2px solid var(--dark-shades);
+  border-radius: 0.5rem;
+  padding: 1.5rem 1rem;
+}
+
+.sign-in-form h1,
+.sign-up-form h1 {
+  border-bottom: 1px solid var(--dark-shades);
+}
+
+.sign-in-form ul,
+.sign-up-form ul {
+  margin-top: 2.75rem;
+}
+
 @media (min-width: 768px) {
   .btns button {
     margin: 0 0 0 0.25rem;
