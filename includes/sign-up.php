@@ -63,11 +63,7 @@
   }
 
   elseif(!empty($data['email'])) {
-    if(userExist($con, $data['email'])){
-      $errors['email'] = 'email already exists';
-    }
-
-    elseif(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+    if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
       $errors['email'] = 'invalid email';
    } elseif(!preg_match('/(gmail.com)$/', $data['email'])) {
       $errors['email'] = 'email should be gmail';
@@ -102,6 +98,10 @@
 
   if($data['password'] != $data['confirm-password']) {
     $errors['cpassword'] = 'passwords do not match';
+  }
+
+  elseif(userExist($con, $data['email'])){
+    $errors['user'] = 'user already exists';
   }
 
   elseif((preg_match('/^[a-zA-Z ]+$/', $data['fullname'])) && !userExist($con, $data['email']) && filter_var($data['email'], FILTER_VALIDATE_EMAIL) && !(strlen($data['password']) < 8) && preg_match('/[A-Z]/', $data['password']) && preg_match('/[a-z]/', $data['password']) && preg_match('/[0-9]/', $data['password']) && preg_match('/[^a-zA-Z0-9]/', $data['password']) && ($data['password'] == $data['confirm-password'])) {
