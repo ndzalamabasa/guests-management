@@ -39,6 +39,7 @@ $checkPassword = password_verify($data['password'], $pwdHashed);
 if(empty($data['email']) ) {
   $errors['email'] = 'required';
 }
+
 if(empty($data['password']) ) {
   $errors['password'] = 'required';
 }
@@ -48,7 +49,7 @@ else if(!$userExists){
 }
 
 else if(!$checkPassword){
-  $errors['password'] = 'email or password is incorrect';
+  $errors['user'] = 'email or password is incorrect';
 }
 
 if($checkPassword){
