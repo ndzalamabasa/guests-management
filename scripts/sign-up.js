@@ -1,5 +1,14 @@
 const signUpForm = document.getElementById('sign-up-form');
 const errors = document.querySelectorAll('.error');
+
+let fullnameError = document.getElementById('fullname-error');
+let emailError = document.getElementById('email-error');
+let passwordError = document.getElementById('password-error');
+let cpasswordError = document.getElementById('cpassword-error');
+let userError = document.getElementById('err_message');
+
+
+
 document.getElementById('sign-up').onclick = function (e) {
   e.preventDefault();
   const form_data = new FormData(signUpForm);
@@ -29,28 +38,35 @@ function signUp(formData) {
 
           window.location.href = '/guests/';
         } else {
+          if (response.fullname !== '') {
+            fullnameError.innerText = `${response.fullname}`;
+          }
+          if (response.email !== '') {
+            emailError.innerText = `${response.email}`;
+          }
+
+          if (response.password !== '') {
+            passwordError.innerText = `${response.password}`;
+          }
+          if (response.cpassword !== '') {
+            cpasswordError.innerText = `${response.cpassword}`;
+          }
+          if (response.user !== '') {
+            userError.innerText = `${response.user}`;
+          }
+
           errors.forEach(error => {
             error.style.display = 'block';
             setTimeout(function () {
               error.style.display = 'none';
+              fullnameError.innerText = '';
+              emailError.innerText = '';
+              passwordError.innerText = '';
+              cpasswordError.innerText = '';
+              userError.innerText = '';
+
             }, 3000);
           });
-          if (response.fullname !== '') {
-            document.getElementById('fullname-error').innerText = `${response.fullname}`;
-          }
-          if (response.email !== '') {
-            document.getElementById('email-error').innerText = `${response.email}`;
-          }
-
-          if (response.password !== '') {
-            document.getElementById('password-error').innerText = `${response.password}`;
-          }
-          if (response.cpassword !== '') {
-            document.getElementById('cpassword-error').innerText = `${response.cpassword}`;
-          }
-          if (response.user !== '') {
-            document.getElementById('err_message').innerText = `${response.user}`;
-          }
         }
       } else {
         alert('there was a problem signing up, try again!');
