@@ -54,46 +54,58 @@
     $errors['fullname'] = 'required';
   }
 
+  elseif(!empty($data['fullname']) && (!preg_match('/^[a-zA-Z ]+$/', $data['fullname']))) {
+    $errors['fullname'] = 'name should be only letters';
+  }
+
   if(empty($data['email']) ) {
     $errors['email'] = 'required';
   }
 
- if(!empty($data['email'])) {
-  if(userExist($con, $data['email'])){
-    $errors['email'] = 'email already exists';
+  elseif(!empty($data['email'])) {
+    if(userExist($con, $data['email'])){
+      $errors['email'] = 'email already exists';
+    }
+
+    elseif(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+      $errors['email'] = 'invalid email';
+   } elseif(!preg_match('/(gmail.com)$/', $data['email'])) {
+      $errors['email'] = 'email should be gmail';
+    }
   }
-  else if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL) || !preg_match('/(gmail.com)$/', $data['email'])){
-    $errors['email'] = 'invalid email';
-   }
-}
 
   if(empty($data['password']) ) {
     $errors['password'] = 'required';
   }
 
-  if(!empty($data['password'])){
+  elseif(!empty($data['password'])){
     if(strlen($data['password']) < 8){
       $errors['password'] = 'password should be at least 8 characters';
     }
-      elseif(preg_match('/[A-Z]/', $data['password'])){
+      elseif(!preg_match('/[A-Z]/', $data['password'])){
         $errors['password'] = 'password should contain at least one uppercase letter';
       }
-      elseif(preg_match('/[a-z]/', $data['password'])){
+      elseif(!preg_match('/[a-z]/', $data['password'])){
         $errors['password'] = 'password should contain at least one lowercase letter';
       }
-      elseif(preg_match('/[0-9]/', $data['password'])){
+      elseif(!preg_match('/[0-9]/', $data['password'])){
         $errors['password'] = 'password should contain at least one number';
       }
-      elseif(preg_match('/[^a-zA-Z0-9]/', $data['password'])){
+      elseif(!preg_match('/[^a-zA-Z0-9]/', $data['password'])){
         $errors['password'] = 'password should contain at least one special character';
       }
+  }
+
+  if(empty($data['confirm-password']) ) {
+    $errors['cpassword'] = 'required';
   }
 
   if($data['password'] != $data['confirm-password']) {
     $errors['cpassword'] = 'passwords do not match';
   }
 
-  else if(!(userExist($con, $data['email'])) && !empty($data['fullname']) && !empty($data['email']) && !empty($data['password']) && !empty($data['confirm-password']) && $data['password'] == $data['confirm-password']) {
+  elseif(!empty($data['fullname']) && (preg_match('/^[a-zA-Z ]+$/', $data['fullname'])) && userExist($con, $data['email']) && filter_var($data['email'], FILTER_VALIDATE_EMAIL) && strlen($data['password']) < 8 && preg_match('/[A-Z]/', $data['password']) && preg_match('/[a-z]/', $data['password']) && preg_match('/[0-9]/', $data['password']) && preg_match('/[^a-zA-Z0-9]/', $data['password']) && ($data['password'] == $data['confirm-password'])) {
+
     addUser($con, $data);
     $errors['success'] = 'Successfully Signed Up';
 
