@@ -25,7 +25,7 @@
     <div class="search-filter container">
       <input type="text" id="search" placeholder="Search By Name" />
       <div class="filter-button btns">
-        <button id="toggle-sort">Sort</button>
+        <button id="toggle-sort" disabled>Sort</button>
         <button id="toggle-filter">Filter</button>
       </div>
     </div>

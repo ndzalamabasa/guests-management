@@ -264,6 +264,10 @@ strong {
 #toggle-filter {
   width: 150px;
 }
+#toggle-sort {
+  background-color: var(--dark-accent);
+  cursor: none;
+}
 .filter-hidden,
 .sort-hidden {
   transform: translateX(100%);
