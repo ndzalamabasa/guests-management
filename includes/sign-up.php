@@ -104,7 +104,7 @@
     $errors['cpassword'] = 'passwords do not match';
   }
 
-  elseif(!empty($data['fullname']) && (preg_match('/^[a-zA-Z ]+$/', $data['fullname'])) && userExist($con, $data['email']) && filter_var($data['email'], FILTER_VALIDATE_EMAIL) && strlen($data['password']) < 8 && preg_match('/[A-Z]/', $data['password']) && preg_match('/[a-z]/', $data['password']) && preg_match('/[0-9]/', $data['password']) && preg_match('/[^a-zA-Z0-9]/', $data['password']) && ($data['password'] == $data['confirm-password'])) {
+  elseif((preg_match('/^[a-zA-Z ]+$/', $data['fullname'])) && !userExist($con, $data['email']) && filter_var($data['email'], FILTER_VALIDATE_EMAIL) && !(strlen($data['password']) < 8) && preg_match('/[A-Z]/', $data['password']) && preg_match('/[a-z]/', $data['password']) && preg_match('/[0-9]/', $data['password']) && preg_match('/[^a-zA-Z0-9]/', $data['password']) && ($data['password'] == $data['confirm-password'])) {
 
     addUser($con, $data);
     $errors['success'] = 'Successfully Signed Up';
