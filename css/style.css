@@ -34,7 +34,13 @@ h1 {
   font-size: 2.5rem;
   font-family: 'Gravitas One', cursive;
 }
+a {
+  color: var(--brand);
+}
 
+a:hover {
+  color: var(--dark-shades);
+}
 .page-heading {
   margin-bottom: 1rem;
   text-align: center;
@@ -370,6 +376,9 @@ strong {
 }
 
 /* Sign up and in forms */
+.error {
+  color: #cc0000;
+}
 .sign-in-form,
 .sign-up-form {
   max-width: 400px;
