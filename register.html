@@ -30,12 +30,14 @@
                   value=""
                   required
                 />
+                <span class="error" id="fullname-error"></span>
                 <!-- Email -->
               </li>
 
               <li>
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" value="" required />
+                <span class="error" id="email-error"></span>
               </li>
               <!-- Password -->
               <li>
@@ -47,6 +49,7 @@
                   value=""
                   required
                 />
+                <span class="error" id="password-error"></span>
               </li>
               <!-- Confirm Password -->
               <li>
@@ -58,6 +61,7 @@
                   value=""
                   required
                 />
+                <span class="error" id="cpassword-error"></span>
               </li>
             </ul>
 
@@ -65,7 +69,7 @@
             <p class="text-center">
               <small class="text-center"
                 >Have an account?
-                <a href="/index"><strong>Sign In</strong></a></small
+                <a href="/"><strong>Sign In</strong></a></small
               >
             </p>
           </form>
