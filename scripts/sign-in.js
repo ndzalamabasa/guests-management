@@ -1,6 +1,10 @@
 const signInForm = document.getElementById('sign-in-form');
 const errors = document.querySelectorAll('.error');
 
+let emailError = document.getElementById('email-error');
+let passwordError = document.getElementById('password-error');
+let userError = document.getElementById('err_message');
+
 document.getElementById('sign-in').onclick = function (e) {
   e.preventDefault();
   const form_data = new FormData(signInForm);
@@ -29,22 +33,26 @@ function signIn(formData) {
 
           window.location.href = '../guests/';
         } else {
+          if (response.email !== '') {
+            emailError.innerText = `${response.email}`;
+          }
+
+          if (response.password !== '') {
+            passwordError.innerText = `${response.password}`;
+          }
+          if (response.user !== '') {
+            userError.innerText = `${response.user}`;
+          }
+
           errors.forEach(error => {
             error.style.display = 'block';
             setTimeout(function () {
               error.style.display = 'none';
+              emailError.innerText = '';
+              passwordError.innerText = '';
+              userError.innerText = '';
             }, 3000);
           });
-          if (response.email !== '') {
-            document.getElementById('email-error').innerText = `${response.email}`;
-          }
-
-          if (response.password !== '') {
-            document.getElementById('password-error').innerText = `${response.password}`;
-          }
-          if (response.user !== '') {
-            document.getElementById('err_message').innerText = `${response.user}`;
-          }
         }
       } else {
         alert('there was a problem signing in, try again!');
