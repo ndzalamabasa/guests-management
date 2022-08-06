@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="/css/style.css" />
     <title>MHT Pageant | Sign Up</title>
   </head>
@@ -49,7 +56,32 @@
                   value=""
                   required
                 />
+
                 <small class="error" id="password-error"></small>
+                <ul class="password-strength">
+                  <li class="condition">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <span id="length"><small>8 characters</small></span>
+                  </li>
+                  <li class="condition">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <span id="uppercase"><small>uppercase</small> </span>
+                  </li>
+                  <li class="condition">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <span id="lowercase"><small>lowercase</small> </span>
+                  </li>
+                  <li class="condition">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <span id="digit"><small>digit</small> </span>
+                  </li>
+                  <li class="condition">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <span id="character"
+                      ><small>special character</small>
+                    </span>
+                  </li>
+                </ul>
               </li>
               <!-- Confirm Password -->
               <li>
@@ -76,6 +108,7 @@
         </div>
       </div>
     </main>
+    <script src="/scripts/password.js"></script>
     <script src="/scripts/sign-up.js"></script>
   </body>
 </html>
