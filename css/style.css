@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gravitas+One&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gravitas+One&family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
 
 * {
   margin: 0;
@@ -11,10 +11,13 @@
   --dark-shades: #252133;
   --light-accent: #777b83;
   --light-shades: #f1f1f1;
+  --error: #bb2124;
+  --white: #fff;
+  --success: #22bb33;
 }
 body {
-  font-family: 'Poppins', sans-serif;
-  background: #ffffff;
+  font-family: "Poppins", sans-serif;
+  background: var(--white);
   font-weight: 300;
   color: var(--dark-shades);
 }
@@ -35,7 +38,7 @@ main {
 
 h1 {
   font-size: 2.5rem;
-  font-family: 'Gravitas One', cursive;
+  font-family: "Gravitas One", cursive;
 }
 a {
   color: var(--brand);
@@ -57,7 +60,7 @@ a:hover {
   text-align: center;
 }
 
-input[type='submit'],
+input[type="submit"],
 button {
   background-color: var(--brand);
   color: var(--light-shades);
@@ -70,11 +73,11 @@ button {
   margin-top: 2rem;
   transition: background-color 0.2s ease-in-out;
 }
-input[type='submit'] {
+input[type="submit"] {
   margin: 2rem 0 0.75rem;
 }
 
-input[type='submit']:hover,
+input[type="submit"]:hover,
 button:hover {
   background-color: var(--dark-shades);
   cursor: pointer;
@@ -94,7 +97,7 @@ button:hover {
 }
 
 .success {
-  color: rgb(34, 187, 51);
+  color: var(--success);
 }
 /* Add guest styles */
 
@@ -160,7 +163,7 @@ header {
   z-index: 2000;
   width: 100vw;
 
-  background-color: #fff;
+  background-color: var(--white);
 }
 nav ul {
   display: flex;
@@ -281,7 +284,7 @@ strong {
   margin: auto;
 }
 .filter-results h2 {
-  font-family: 'Gravitas One', cursive;
+  font-family: "Gravitas One", cursive;
   border-bottom: 1px solid var(--light-shades);
 }
 .results-filter {
@@ -386,6 +389,26 @@ strong {
   position: relative;
 }
 
+form ul.password-strength {
+  margin-top: 0.5rem;
+}
+.condition {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: var(--error);
+
+  margin: 0;
+}
+
+.condition i {
+  margin-right: 0.5rem;
+}
+
+.condition-passed {
+  color: var(--success);
+}
+
 .form-container input,
 .form-container select {
   background-color: transparent;
@@ -397,7 +420,7 @@ strong {
   color: var(--dark-shades);
 }
 
-.form-container input[type='submit'] {
+.form-container input[type="submit"] {
   background-color: var(--light-shades);
   color: var(--dark-shades);
 }
@@ -423,7 +446,7 @@ strong {
 
 /* Sign up and in forms */
 .error {
-  color: #cc0000;
+  color: var(--error);
 }
 .sign-in-form,
 .sign-up-form {
@@ -521,7 +544,7 @@ strong {
     position: sticky;
     left: 0;
     z-index: 1;
-    background-color: #fff;
+    background-color: var(--white);
   }
   .name-header {
     background-color: var(--dark-shades);
