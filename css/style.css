@@ -15,11 +15,14 @@
 body {
   font-family: 'Poppins', sans-serif;
   background: #ffffff;
-  padding: 1.75rem 0;
   font-weight: 300;
   color: var(--dark-shades);
 }
 /* Global styles */
+
+.main-content {
+  margin: 5.25rem 0;
+}
 
 main {
   padding-bottom: 1.25rem;
@@ -147,6 +150,44 @@ select:focus {
   border: 1px solid var(--light-shades);
   transition: background-color 0.2s ease-in-out;
 }
+
+/* Navigation */
+
+header {
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  z-index: 2000;
+  width: 100vw;
+
+  background-color: #fff;
+}
+nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dark-shades);
+}
+nav ul li {
+  width: auto;
+}
+
+#sign-out,
+#nav-sign-in {
+  margin: 0;
+  width: 150px;
+}
+#sign-out a,
+#nav-sign-in a {
+  color: var(--light-shades);
+  text-decoration: none;
+}
 /* Guest details cards */
 .guest {
   margin-bottom: 0.75rem;
@@ -266,6 +307,7 @@ strong {
 }
 #toggle-sort {
   background-color: var(--dark-accent);
+  opacity: 0;
   cursor: none;
 }
 .filter-hidden,
@@ -426,6 +468,10 @@ strong {
     width: 400px;
     background-color: var(--dark-shades);
     color: var(--light-shades);
+  }
+
+  #toggle-sort {
+    display: none;
   }
 }
 
