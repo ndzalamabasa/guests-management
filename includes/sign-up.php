@@ -65,9 +65,7 @@
   elseif(!empty($data['email'])) {
     if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
       $errors['email'] = 'invalid email';
-   } elseif(!preg_match('/(gmail.com)$/', $data['email'])) {
-      $errors['email'] = 'email should be gmail';
-    }
+   }
   }
 
   if(empty($data['password']) ) {
